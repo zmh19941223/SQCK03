@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位</title>
+    <style> 
+        /*
+            固定定位：不管页面如何滚动，它永远固定在那里。语法是：position: fixed;
+            特点：固定定位只能以页面作为基准点，没有“子固父相”性质
+            使用场景：返回顶部、楼层导航等
+        */
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+       .box2 {
+           background-color: pink;
+           width: 80px;
+           height: 30px; 
+       }
+ 
+       .fixed {
+           position: fixed;/*固定定位*/
+           right: 50px;
+           bottom: 50px;
+       }
+
+    </style>
+</head>
+<body>
+    <div>
+        <p >拉拉拉</p>
+        <p >拉拉拉</p>
+    </div>
+    <div class="box2 fixed">
+        返回顶部
+    </div>
+</body>
+</html>

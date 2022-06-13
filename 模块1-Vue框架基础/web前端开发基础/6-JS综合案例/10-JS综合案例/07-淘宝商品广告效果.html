@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>淘宝商品广告效果</title>
+		<style>
+			li{
+				list-style: none;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+			}
+			#goods{
+				border: 1px solid red;
+				width: 300px;
+				height: 250px;
+				font-size: 12px;
+				font-family: "宋体";
+				text-align: center;
+			}
+			#goods img{
+				width: 185px;
+				height: 230px;
+			}
+			#goods #left{
+				float: left;
+				margin-left: 2px;
+				margin-top: 2px;
+			}
+			#goods #right{
+				float: right;
+				margin-right: 2px;
+				margin-top: 2px;
+			}
+			#goods li{
+				width: 50px;
+				height: 28px;
+				border: 1px solid red;
+				margin-bottom: 3px;
+				line-height: 28px;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var aImg = ["img/101.jpg","img/112.jpg","img/123.jpg","img/134.jpg","img/145.jpg","img/156.jpg","img/167.jpg","img/178.jpg","img/189.jpg","img/190.jpg","img/191.jpg","img/192.jpg","img/193.jpg","img/194.jpg"];
+				var name = ["连衣裙","雪纺","T恤","铅笔裤","婚纱","外套","连体裤","包包","凉鞋","单鞋","太阳镜","丝袜","帆布鞋","情侣装"];
+				var aUl =document.getElementsByTagName("ul");
+				var aLi = document.getElementsByTagName("li");
+				var oPhoto = document.getElementById("photo");
+				var time = null;
+				var num = 0;
+				//初始化
+				dsq();
+				oPhoto.style.src = aImg[0];
+				for (var i = 0; i < aImg.length/2; i++) {
+					aUl[0].innerHTML+="<li></li>";
+					aUl[1].innerHTML+="<li></li>";
+				}
+				for (var j = 0; j < name.length; j++) {
+					aLi[j].innerHTML = name[j];
+				}
+				for (var k = 0; k < aImg.length; k++) {
+					aLi[k].index = k;
+					aLi[k].onmouseover = function (){
+						for(var t=0;t<aImg.length;t++){
+							aLi[t].style.background = "";
+						}
+						oPhoto.src = aImg[this.index];
+						this.style.background = "red";
+						clearInterval(time);
+					}
+					aLi[k].onmouseout = function (){
+						num = this.index;
+						dsq();
+					}
+				}
+				aLi[0].style.background = "red";
+				function dsq(){
+					time = setInterval(function(){
+					num++;
+					for(var i=0;i<aImg.length;i++){
+						aLi[i].style.background = "";
+					}
+					if(num<aImg.length){
+						aLi[num].style.background = "red";
+						oPhoto.src = aImg[num];
+					}else{
+						num=0;
+						aLi[0].style.background = "red";
+						oPhoto.src = aImg[num];
+					}
+					},1000);
+				}	
+			}
+		</script>
+	</head>
+	<body>
+		<div id="goods">
+			<ul id="left">
+			</ul>
+			<img src="img/1.jpg" id="photo"/>
+			<ul id="right">
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery事件方法</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <p>这里是第一个段落.</p>
+    <input type="text" name="userName">
+    <button id="btn1">绑定click事件</button>
+    <button id="btn2">toggle切换事件</button>
+    
+    <script>
+        $(document).ready(function(){
+            //1. 给btn1按钮绑定click点击事件
+            $("#btn1").bind("click",function(){
+                alert('点击事件');
+            });
+            //2. focus获得焦点事件
+            $("input").focus(function(){
+                $("input").css("background-color","#FFFFCC");
+            });
+            //3. blur失去焦点事件
+            $("input").blur(function(){
+                $("input").css("background-color","#D6D6FF");
+            });
+            //4. toggle切换事件
+            $("#btn2").bind("click",function(){
+                $("p").toggle(5000,function(){alert("切换完成了!")});
+            });
+            
+
+        });
+    </script>
+</body>
+</html>

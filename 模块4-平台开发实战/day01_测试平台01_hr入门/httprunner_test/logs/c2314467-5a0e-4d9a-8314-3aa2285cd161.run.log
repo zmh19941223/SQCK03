@@ -1,0 +1,45 @@
+2021-10-16 21:53:38.632 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: case001_login, TestCase ID: c2314467-5a0e-4d9a-8314-3aa2285cd161
+2021-10-16 21:53:38.636 | INFO     | httprunner.runner:__run_step:292 - run step begin: do_login_request >>>>>>
+2021-10-16 21:53:40.736 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 43104
+2021-10-16 21:53:40.737 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-16 21:53:40.739 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-c2314467-5a0e-4d9a-8314-3aa2285cd161-418637",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-16 21:53:40.745 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=79ezr7cj67a980mxj75sgl6jkvyfs78g; HttpOnly; Path=/",
+    "Date": "Sat, 16 Oct 2021 13:53:40 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "79ezr7cj67a980mxj75sgl6jkvyfs78g"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-16 21:53:40.745 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2098.26 ms, response_length: 0 bytes
+2021-10-16 21:53:40.747 | INFO     | httprunner.response:validate:249 - assert body.retcode equal 0(int)	==> pass
+2021-10-16 21:53:40.747 | INFO     | httprunner.runner:__run_step:304 - run step end: do_login_request <<<<<<
+

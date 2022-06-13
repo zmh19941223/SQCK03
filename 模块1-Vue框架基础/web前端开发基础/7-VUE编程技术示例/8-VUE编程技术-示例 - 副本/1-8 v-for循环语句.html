@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for循环语句</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  v-for 指令：用于把数组或对象渲染为列表。它有独特的语法：
+                      它的语法格式为：v-for="item in items"
+                      其中 items 是源数据数组，item 则是被迭代的数组元素的别名。
+           此外，v-for还支持一个可选的索引参数。
+                         语法格式为：v-for="(item,index) in items"           
+  
+  -->
+<body>
+  
+  <div id="root">
+      <h2>循环渲染一个数组1</h2>
+      <ul>
+        <li v-for="item in items1">{{item}}</li>
+      </ul>
+      <h2>循环渲染一个数组2</h2>
+      <ul>
+        <li v-for="item in items2">{{item.city}}</li>
+      </ul>
+      <h2>循环渲染一个对象-第一个参数显示value</h2>
+      <ul>
+        <li v-for="value in person">{{value}}</li>
+      </ul>
+      <h2>循环渲染一个对象-第二个参数显示title</h2>
+      <ul>
+        <li v-for="(value,title) in person">{{title}}-------{{value}}</li>
+      </ul>
+
+      <h2>===============添加可选的索引参数=================</h2>
+      <h2>循环渲染一个数组1</h2>
+      <ul>
+        <li v-for="(item , index) in items1">{{index}}-{{item}}</li>
+      </ul>
+      <h2>循环渲染一个对象-第二个参数显示title</h2>
+      <ul>
+        <li v-for="(value,title,index) in person">{{index}}------{{title}}-------{{value}}</li>
+      </ul>
+
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            message: '',
+            items1:['泰国','新加坡','印度尼西亚'],
+            items2:[
+                    {'city':'泰国'},
+                    {'city':'新加坡'},
+                    {'city':'印尼九层塔'}
+                  ],
+            person:{
+              'name':'张三',
+              'sex':'男',
+              'birthday':'2009-01-01'
+            },
+          }
+      }
+    });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

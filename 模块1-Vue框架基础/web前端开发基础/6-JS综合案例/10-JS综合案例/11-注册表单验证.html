@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单</title>
+		<style>
+			/* 定义表格 */
+			table{
+				border-collapse:collapse;/* 表格边框类型 */
+				margin: 0px auto;/*居中效果*/
+			}			
+			th {
+				border: 10px solid transparent;/*透明边框10像素*/
+			}
+			/* 父元素第一个th元素 */
+			th:first-of-type{
+				font-size: 16px;
+				text-align: right;
+			}
+			/* 规定属于其父元素的第二个子元素 */
+			th:nth-child(2){
+				font-size: 14px;
+				text-align: left;
+			}
+			/* 下拉框样式 */
+			.select2{
+				height: 26px;
+				font-size: 14px;
+			}
+			.select{
+				border: none;
+				color: blue;
+				font-size: 14px;
+			}
+			/* 文本框 */
+			.text{
+				height: 26px;
+				width: 224px;
+			}
+			/* 文本域 */
+			textarea{
+				height: 52px;
+				width: 224px;
+				resize:none;
+			}
+
+			span{
+				color: blue;
+			}
+			/* 红星 */
+			.red{
+				color: red;
+			}
+			/* 提交按钮 */
+			.saveBtn{
+				background-color: orange;
+				color: #fff;				
+				width:60px;
+			}
+			/* 重置按钮 */
+			.saveBtn2{
+				background-color: #64b340;
+				color: #fff;
+				margin-left: 10px;
+				width:60px;
+			}
+		</style>
+	</head>
+	<body>
+		<form  action="http://www.baidu.com" onsubmit="return toVaild()">
+			<table>
+				<tr>
+					<th><span class="red">*</span>昵 称:</th>
+					<th><input class="text" type="text" name="nickName" value="" /></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th><span class="red">*</span>真实姓名:</th>
+					<th><input class="text" type="text" name="realName" value="" /></th>
+					<th>
+						<select name="" class="select">
+							<option value="">所有人可见</option>
+							<option value="">保密</option>
+							<option value="">我关注的人可见</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th><span class="red">*</span>所在地:</th>
+					<th>
+						<select name="region" class="select2">
+							<option value ="">请选择</option>
+							<option value ="beijing">北京市</option>
+						</select>
+						<select name="area" class="select2">
+							<option value ="">请选择</option>
+							<option value ="chaoyang">海淀区</option>
+							<option value ="chaoyang">大兴区</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th><span class="red">*</span>性 别:</th>
+					<th>
+						<input type="radio" value="1" name="sex" checked ><label>男</label>
+						<input type="radio" value="2" name="sex"><label>女</label>
+					</th>
+				</tr>
+				<tr>
+					<th>生日:</th>
+					<th>
+						<select class="select2">
+							<option value ="1993">1993</option>
+							<option value ="1994">1994</option>
+						</select>年
+						<select class="select2">
+							<option value ="01">01</option>
+							<option value ="02">02</option>
+						</select>月
+						<select class="select2">
+							<option value ="01">01</option>
+							<option value ="02">02</option>
+						</select>日
+					</th>
+					<th>
+						<select name="" class="select">
+							<option value="">保密</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th>博客地址:</th>
+					<th><input class="text" type="text" value="" /></th>
+					<th>
+						<select name="" class="select">
+							<option value="">所有人可见</option>
+							<option value="">保密</option>
+							<option value="">我关注的人可见</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th>常用邮箱:</th>
+					<th>123123111@163.cn <span>修改</span></th>
+					<th>
+						<select name="" class="select">
+							<option value="">所有人可见</option>
+							<option value="">保密</option>
+							<option value="">我关注的人可见</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th>QQ:</th>
+					<th><input class="text" type="text" value=""/></th>
+					<th>
+						<select name="" class="select">
+							<option value="">所有人可见</option>
+							<option value="">保密</option>
+							<option value="">我关注的人可见</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th>MSN:</th>
+					<th><input class="text" type="text" value=""/></th>
+					<th>
+						<select name="" class="select">
+							<option value="">所有人可见</option>
+							<option value="">保密</option>
+							<option value="">我关注的人可见</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th>一句话介绍:</th>
+					<th><textarea>人生在于折腾</textarea></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>— — — — — — — — — — — — — — — —</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>以下信息可作为客服取回帐号的证据</th>
+				</tr>
+				<tr>
+					<th>证件类型</th>
+					<th><select class="select2"><option value ="card">身份证</option></select></th>
+				</tr>
+				<tr>
+					<th>证件号码:</th>
+					<th><input class="text" type="text" value="" /></th>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="提交" class="saveBtn" id="saveBtn"/>
+						<input type="reset" value="重置" class="saveBtn2" />		
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		 
+		</form>
+
+		<script>
+			 
+		window.onload = function(){
+            var oBtn = document.getElementById("saveBtn"); 
+          //  oBtn.addEventListener("click", register,false);  
+        }
+
+		function toVaild(){
+			var nickName = document.getElementsByName("nickName")[0].value;
+			if(nickName==''){
+				alert('昵称不能为空！');
+				return false;
+			}
+
+			var realName = document.getElementsByName("realName")[0].value;
+			if(realName==''){
+				alert('真实姓名不能为空！');
+				return false;
+			}
+
+			var region = document.getElementsByName("region")[0].value;
+			if(region==''){
+				alert('所在地区不能为空！');
+				return false;
+			}
+
+			var area = document.getElementsByName("area")[0].value;
+			if(area==''){
+				alert('所在市不能为空！');
+				return false;
+			}
+
+			var sex = document.getElementsByName("sex")[0].value;
+			if(sex==''){
+				alert('性别不能为空！');
+				return false;
+			}
+			
+
+			alert('提交成功!');
+			return false;//这里不提交
+		}
+
+
+	
+
+			
+		</script>
+
+
+	</body>
+</html>

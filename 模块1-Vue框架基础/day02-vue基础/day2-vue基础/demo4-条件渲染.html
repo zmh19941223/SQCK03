@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo4</title>
+</head>
+<body>
+  <div id="root">
+    <button @click="ate=!ate">开饭/消化</button>
+    <!-- v-if用于控制元素是否显示 控制元素生成和销毁-->
+    <h3 v-if="ate">吃过了</h3>
+    <!-- v-show作用是控制了元素的样式 -->
+    <!-- <h3 v-show="ate">吃过了</h3> -->
+    <h3 v-else-if="drink">喝水</h3>
+    <h3 v-else>饿了</h3> 
+    <!-- v-if后面紧跟v-else 可以实现分支效果 -->
+    <!-- v-show的性能开销小于v-if，再元素频繁切换的场景下建议使用v-show -->
+
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const vm = Vue.createApp({
+      data(){
+        return{
+          ate: false,
+          drink: true,
+        }
+      },
+      methods:{
+
+      }
+    }).mount('#root')
+      
+    
+
+  </script>
+</body>
+</html>

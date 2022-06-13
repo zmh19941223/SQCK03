@@ -1,0 +1,6 @@
+完成项目脚手架搭建  vue-cli
+理解组合式API特点,
+练习创建文件形式组件，熟悉组合式API内的生命周期钩子，模板（原生元素）的引用
+
+预习vue-router-快速入门:https://next.router.vuejs.org/zh/index.html
+预习element-plus--熟悉input组件:https://element-plus.gitee.io/#/zh-CN/component/menu

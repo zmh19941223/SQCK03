@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  var y = document.forms["myForm"]["fage"].value;
+  if (x == "" ) {
+    alert("必须填写姓名or年龄！");
+    return false;
+  }else if (Number(y)>10){
+    alert("年龄太大了");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="http://www.songqinnet.com" onsubmit="return validateForm()" method="post">
+  姓名：<input type="text" name="fname">
+  年龄：<input type="text" name="fage">
+  <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

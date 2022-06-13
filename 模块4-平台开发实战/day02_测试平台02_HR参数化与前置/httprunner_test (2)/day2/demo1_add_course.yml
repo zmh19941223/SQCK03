@@ -1,0 +1,43 @@
+config:
+  name: 增加课程
+  base_url: ${ENV(base_url)}
+  export:
+    - course_id
+    - cookie
+
+teststeps:
+  - #step1 引用login_case.yml
+    name: 登录
+    testcase: day2/login_case.yml
+
+  - #step2
+    name: 发送增加课程请求
+    setup_hooks:
+      - ${before_add_course($request)}
+    teardown_hooks:
+      - ${after_add_course($response)}
+    variables:
+      name: 小学语文
+      desc: 语文课
+      idx: 3
+#      ${add_course_variables()}  teststep中不支持从debugtalk中读取函数返回值
+    request:
+      url: /api/mgr/sq_mgr/
+      method: POST
+      data:
+        action: add_course
+        data:
+#          '{"name":"${name}","desc":"${desc}", "display_idx":"${idx}"}'
+            name: $name
+            desc: $desc
+            display_idx: $idx
+      cookies:
+        sessionid: $cookie
+    extract:
+      course_id: body.id
+
+    validate:
+      -
+        equal:
+          - body.retcode
+          - 0

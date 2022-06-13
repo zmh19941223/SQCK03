@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title%}嘉宾管理{% endblock %}
+{% block content%}
+  <ul class="list-group">
+    {% for guest in guest_list %}
+      <li class="list-group-item text-center">
+      <a href="/sgin/guests/{{ guest.id }}">{{ guest }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

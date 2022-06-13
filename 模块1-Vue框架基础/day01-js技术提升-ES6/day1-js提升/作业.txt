@@ -1,0 +1,12 @@
+任务:
+0. 创建lib1.js文件，按照以下需求写好代码
+1. 创建1个对象A，并给对象设置属性与属性值，使用扩展运算符拷贝到另一个对象B中
+2. 给对象B增加一个函数hello,要求返回对象B的某个属性
+3. 创建main.js文件，引入lib1.js文件的对象B，并调用对象B的hello方法，并输出hello的执行结果
+4. 创建index.html 文件，引入main.js
+5. 服务器环境打开index.html文件，查看控制台是否输出了hello的执行结果
+
+预习：
+1.https://v3.cn.vuejs.org/guide/introduction.html  
+访问vue3官网，尝试搭建vue3学习环境--可以调用vue代码即可
+使用script标签导入vue.js文件即可

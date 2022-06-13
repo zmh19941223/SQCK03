@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo3</title>
+</head>
+<body>
+  <div id="root">
+    <search-input v-model="kwargs"></search-input>
+    <!-- <input type="text" placeholder="请输入搜索关键字" v-model="kwargs"> -->
+    <!-- <input type="text" :value="kwargs" @input="kwargs=$event.target.value"> -->
+    <h3>你输入的内容:{{kwargs}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data(){
+        return{
+          kwargs:''
+        }
+      }
+    })
+    app.component('search-input',{
+      props:['modelValue'], // v-model传递过来的变量名就叫modelValue
+      emits:['update:modelValue'],  // 实现组件v-model的固定语法
+      template:`
+      <input type="text" placeholder="请输入搜索关键字"
+      :value="modelValue"
+      @input="$emit('update:modelValue',$event.target.value)"
+      >
+      `
+    })
+    
+    app.mount("#root")
+  </script>
+</body>
+</html>

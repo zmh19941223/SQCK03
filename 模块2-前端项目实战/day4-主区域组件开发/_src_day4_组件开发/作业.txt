@@ -1,0 +1,11 @@
+完成课堂案例
+尝试根据后端数据动态渲染主页信息
+
+//查询用例请求
+http://120.27.146.185:8076/api/cases/?page_size=5&page_index=2
+//查询web接口
+http://120.27.146.185:8076/api/requests/?page_size=5&page_index=1
+//查询测试计划
+http://120.27.146.185:8076/api/plans/?page_size=5&page_index=1
+//查询测试报告
+http://120.27.146.185:8076/api/reports/?page_size=5&page_index=1

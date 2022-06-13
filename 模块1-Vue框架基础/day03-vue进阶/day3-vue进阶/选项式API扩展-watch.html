@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch-监听器</title>
+</head>
+<body>
+  <!-- 监听器的作用 ，可以检测数据的变化，执行一些复杂逻辑 -->
+  <div id="root">
+    <input type="text" placeholder="请输入用户名" v-model="username">
+    <h3>判断结果:{{result}}</h3>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.createApp({
+      data(){
+        return{
+          username:'',
+          result:''
+        }
+      },
+      methods:{
+        // 需要调用才能触发
+      },
+      watch:{
+        // 监听器语法
+        // 监听的变量名(new变量名,old变量名){判断，如果新变量名xxxx 就xxxx}
+        username(newname,oldname){
+          // console.log('newname:',newname)
+          // console.log('oldname:',oldname)
+          if(newname.length<8){ //用户名小于8 提示不合法
+            this.result='用户名不合法'
+          }else{
+            this.result='合法'
+          }
+        }
+        
+      }
+    }).mount('#root')
+
+  </script>
+</body>
+</html>

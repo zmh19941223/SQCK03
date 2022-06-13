@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 作用域区别
+    // {
+    //   var sq1 = 'hello sq1'  //声明变量--var方式
+    //   let sq2 = 'hello sq2'  //声明变量--let方式
+    // }
+    // console.log(sq1)  // 对象之外 var的作用域区间是全局的
+    // console.log(sq2)  // 对象之外 let有明确的作用域
+
+    // 变量的提升
+    // var 会变量提升
+    // console.log(haiwen)  //
+    // let haiwen = '测开讲师'  // let不会进行变量提升
+    
+    // console.log(haiwen)  //
+    // var haiwen = '测开讲师'  // var会进行变量提升 
+    //相当于
+    // var haiwen  //先声明
+    // console.log(haiwen)  //再使用
+    // haiwen = '测开讲师'  // 再赋值
+    // console.log(haiwen)
+
+    //变量的重复声明
+    
+    // function f1(){
+    //   let a= 1
+    //   let a = 2
+    //   console.log(a)
+    // }
+    // f1()
+    // function f2(arg){
+    //   // let arg='hello'
+    //   // var arg='hello' //var可以重复声明容易出bug
+    //   console.log(arg)
+    // }
+
+    // f2('哈哈哈')
+
+    const name = 12222  //定义常量后保证引用不可变，如定义字符串，数字后，值就不可改
+    // name = '哈哈'
+    console.log(name)
+
+    const a_list=[]  //定义常量后保证引用不可变, 但是可以更改引用对象的内容
+    a_list.push(100)       //更改引用对象内容可以
+    // a_list=[200,300,400]   //重新赋值不可以
+    console.log(a_list)
+      
+    const obj ={}
+    obj.name='小明'
+    console.log(obj)
+
+    // const obj2   //声明变量必须赋值
+    // obj2={name:'小红'}
+  </script>
+</body>
+</html>

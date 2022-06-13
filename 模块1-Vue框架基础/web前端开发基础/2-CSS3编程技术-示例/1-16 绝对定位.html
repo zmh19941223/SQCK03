@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <style> 
+        /*
+            绝对定位：绝对定位的元素，会脱离标准文档流，释放自己原来的位置，对其他元素不会产生任何干扰，二是对它们进行压盖
+
+            特点：正常情况下，绝对定位以浏览器作为基点
+
+            使用场景：用来制作：压盖、遮罩效果、结合js实现动画
+        */
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+       .box1 {
+           border: 3px dashed #000;
+           width: 150px;
+           height: 150px;
+       }
+
+       .box2 {
+           background-color: pink;
+           width: 150px;
+           height: 150px; 
+       }
+
+       .absolute {
+           position: absolute;/*绝对定位*/
+           top: 50px;
+           left: 50px;
+       }
+
+    </style>
+</head>
+<body>
+    
+     <div class="box1">老家没有留坑，这里可以写内容。
+         <div class="box2 absolute">
+           绝对定位
+         </div>
+     </div>
+     <div class="box1">这个div不受到影响，内容只是被压盖</div>
+</body>
+</html>

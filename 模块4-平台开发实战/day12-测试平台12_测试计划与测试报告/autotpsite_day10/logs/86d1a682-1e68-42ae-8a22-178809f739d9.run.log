@@ -1,0 +1,2 @@
+2021-11-09 21:52:21.264 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: case004, TestCase ID: 86d1a682-1e68-42ae-8a22-178809f739d9
+2021-11-09 21:52:21.264 | INFO     | httprunner.runner:__run_step:292 - run step begin: step_name >>>>>>

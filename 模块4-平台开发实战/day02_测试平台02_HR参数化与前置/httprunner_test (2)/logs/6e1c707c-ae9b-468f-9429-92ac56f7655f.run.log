@@ -1,0 +1,50 @@
+2021-10-19 21:44:22.974 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: caseoo1, TestCase ID: 6e1c707c-ae9b-468f-9429-92ac56f7655f
+2021-10-19 21:44:22.975 | INFO     | httprunner.runner:__run_step:292 - run step begin: µÇÂ¼ >>>>>>
+2021-10-19 21:44:22.977 | INFO     | httprunner.runner:__call_hooks:112 - call hook actions: setup request
+2021-10-19 21:44:22.978 | DEBUG    | httprunner.runner:__call_hooks:121 - call hook function: ${hook_setup()}
+2021-10-19 21:44:25.085 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 40381
+2021-10-19 21:44:25.086 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-19 21:44:25.093 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-6e1c707c-ae9b-468f-9429-92ac56f7655f-062977",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-19 21:44:25.094 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=b3p7a3h5x5o5wb2twekod7oxa8mreinx; HttpOnly; Path=/",
+    "Date": "Tue, 19 Oct 2021 13:44:25 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "b3p7a3h5x5o5wb2twekod7oxa8mreinx"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-19 21:44:25.095 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2106.39 ms, response_length: 0 bytes
+2021-10-19 21:44:25.096 | INFO     | httprunner.runner:__call_hooks:112 - call hook actions: teardown request
+2021-10-19 21:44:25.097 | DEBUG    | httprunner.runner:__call_hooks:121 - call hook function: ${hook_teardown()}
+2021-10-19 21:44:25.098 | INFO     | httprunner.response:extract:179 - extract mapping: {'retcode': 0, 'cookie': 'b3p7a3h5x5o5wb2twekod7oxa8mreinx'}
+2021-10-19 21:44:25.099 | INFO     | httprunner.response:validate:249 - assert 0 equal 0(int)	==> pass
+2021-10-19 21:44:25.100 | INFO     | httprunner.runner:__run_step:304 - run step end: µÇÂ¼ <<<<<<
+

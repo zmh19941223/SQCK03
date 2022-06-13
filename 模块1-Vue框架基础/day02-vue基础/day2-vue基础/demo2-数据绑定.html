@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo2</title>
+</head>
+<body>
+  <div id="root">
+    <!-- v-bind:待绑定的属性="data返回的变量" 简写 :属性-->
+    <!-- 单向绑定 数据只能从js流向html -->
+    <!-- <input type="text" placeholder="请输入姓名" v-bind:value="name"> -->
+    <!-- 简写形式 -->
+    <input type="text" placeholder="请输入姓名" :value="name">  
+    <!-- v-model="值" 自动帮你绑定元素对应的属性-->
+    <!-- 双向绑定，数据可以从js流向html也可以从html流向js -->
+    <!-- <input type="text" placeholder="请输入年龄" v-model="age"> -->
+    <!-- v-model的lazy模式 当脱离焦点后再进行同步-->
+    <!-- <input type="text" placeholder="请输入年龄" v-model.lazy="age"> -->
+    <!-- number修饰符，会将v-model绑定的数据转成number -->
+    <!-- <input type="text" placeholder="请输入年龄" v-model.number="age"> -->
+    <!-- trim修饰符，可以自动过滤用户的首位空白字符串 -->
+    <input type="text" placeholder="请输入年龄" v-model.trim="age">
+    <h3>姓名:{{name}}</h3>
+    <h3>年龄:{{age}}</h3>
+  </div>
+  <!-- 建议脚本一般放在最下面 -->
+  <script src="../vue.js"></script>
+
+  <script>
+   const vm =  Vue.createApp({
+      data(){
+        return{
+          name: 'hello',
+          age: 18
+        }
+      }
+    }).mount('#root')
+
+  </script>
+</body>
+</html>

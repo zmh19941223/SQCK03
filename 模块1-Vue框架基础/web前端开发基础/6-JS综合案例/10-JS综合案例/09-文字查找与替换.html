@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>文字查找与替换</title>
+		<style>
+			#box{
+				width: 500px;
+				height: 300px;
+				border: 1px solid #333;
+				text-align: center;
+			}
+			#content{
+				padding: 0;
+				width: 498px;
+				height: 200px;
+				border: 1px solid #000;
+				text-align: left;
+			}
+			#tool{
+				height: 30px;
+				text-align: center;
+			}
+			#bar{
+				height: 0;
+				border: 1px solid #000;
+				margin-bottom: 10px;
+			}
+			#search{
+				display: block;
+			}
+			#replace{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="content">还记得许多年前的春天 那时的我还没剪去长发 没有信用卡没有她 没有24小时热水的家 可当初的我是那么快乐 虽然只有一把破木吉他 在街上 在桥下 在田野中 唱着那无人问津的歌谣 如果有一天 我老无所依 请把我留在 在那时光里 如果有一天 我悄然离去 请把我埋在 这春天里 还记得那些寂寞的春天 那时的我还没冒起胡须 没有情人节 没有礼物 没有我那可爱的小公主 可我觉得一切没那么糟 虽然我只有对爱的幻想 在清晨 在夜晚 在风中 </div>
+			<div id="tool">
+				<input type="button"  value="查找"/>
+				<input type="button" value="替换" />
+			</div>
+			<div id="bar"></div>
+			<div id="search">
+				<input type="text" />
+				<input type="button"  value="查找"/>
+			</div>
+			<div id="replace">
+				<input type="text" />=>
+				<input type="text" />
+				<input type="button" value="替换" />
+			</div>
+		</div>
+		<script>
+			var oTool = document.getElementById("tool");
+			var aInput = oTool.getElementsByTagName("input");
+			var oSearch = document.getElementById("search");
+			var aSerInput = oSearch.getElementsByTagName("input");
+			var oReplace = document.getElementById("replace");
+			var aRepInput = oReplace.getElementsByTagName("input");
+			var oCont = document.getElementById("content");
+			var aSpan = document.getElementsByTagName("span");
+			var str = "";
+			var arr = [];
+			aInput[0].onclick = function(){
+				//查找
+				this.style.background="red";
+				aInput[1].style.background = "";
+				oReplace.style.display = "none";
+				oSearch.style.display = "block";
+			}
+			aInput[1].onclick = function(){
+				//替换
+				aInput[0].style.background = "";
+				this.style.background="red";
+				oSearch.style.display = "none";
+				oReplace.style.display = "block";
+			}
+			aSerInput[1].onclick = function(){
+					for (var i = 0; i < aSpan.length; i++) {
+						aSpan[i].style.background = "transparent";
+					}
+					var cont = oCont.innerText;
+					var text1 = aSerInput[0].value;
+					var arr = cont.split(text1);
+					if(arr.length == 1){
+						alert("查找的内容不存在！");
+					}else{
+						temp = '<span style="background:red">'+text1+'</span>';
+						str = arr.join(temp);
+						oCont.innerHTML = str;
+					}
+			}
+			aRepInput[2].onclick = function(){
+					var temp = "";
+					var cont = oCont.innerHTML;
+					var text1 = aRepInput[0].value;
+					var text2 = aRepInput[1].value;
+					arr = cont.split(text1);
+					if(arr.length == 1){
+						alert("替换的内容不存在！");
+					}else{
+						temp = '<span style="background:yellow">'+text2+'</span>';
+						str = arr.join(temp);
+						oCont.innerHTML = str;
+					}
+			}
+		</script>
+	</body>
+</html>

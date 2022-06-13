@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS语法</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div >
+        js变量
+    </div>
+
+    <script>
+
+        //1.仅定义变量
+        var  a ;
+        console.log(a); //它的值是undefined类型
+        a = 100;   //变量赋值
+        console.log(a);  //输出100
+
+        //2.变量类型
+        var b=undefined;  // undefined 类型变量
+        var c=null;   // null 类型变量
+        var d='ddd';  // 字符串类型变量
+        console.log(b);  
+        console.log(c);
+        console.log(d);
+
+        //3.变量声明提升
+        //先使用变量
+        console.log('x1的值为：'+x1);//输出undefined，而不是异常
+        //后定义变量
+        var x1=12;
+
+    </script>
+</body>
+</html>

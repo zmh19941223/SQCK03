@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo1</title>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <!-- 组件标签就是注册组件时定义的组件名 -->
+      <!-- 如果组件名是驼峰式 blogPost 需要用小写代替，中间加上-作为分隔符-->
+      <blog-post v-for="item in posts" 
+      :post="item"
+      ></blog-post>
+    </ul>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          posts: [
+            { id: 1, title: '红楼梦' },
+            { id: 2, title: '三国演义' },
+            { id: 3, title: '西游记' },
+            { id: 4, title: '水浒传' },
+          ]
+        }
+      },
+    })
+    //定义组件（子组件） 
+    const blog = {
+      //声明接收数据
+      props:['post'],
+      // data() {
+      //   return {
+      //     id: 4, 
+      //     title: '水浒传'
+      //   }
+      // },
+      computed:{
+        link(){
+          return `/blog/${this.post.id}`
+        }
+      },
+      //模板(字符串)--后期会通过文件形式定义模板
+      // 一般组件是单个的 所以通常不会写v-for
+      template: `
+      <li>
+        <a :href="link">{{post.title}}</a>
+      </li>
+      `
+    }
+    // 注册组件 app.component(组件名,组件对象)
+    app.component('blogPost',blog)
+
+    app.mount('#root') 
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>05-商品累计</title>
+		<script>
+			window.onload = function(){
+				//初始化方法
+				var num = 0;
+				var danj = [15,12,10,5,2];
+				function init(goods,num,price){
+					var oGoods = document.getElementById(goods);
+					var aSpan = oGoods.getElementsByTagName("span");
+					aSpan[0].innerHTML = num;
+					aSpan[1].innerHTML = price;
+					aSpan[2].innerHTML = num*price;
+				}
+				console.log(danj);
+				var aLi = document.getElementsByTagName("li");
+				for(var i=0;i<aLi.length;i++){
+					//index 数量    index1 每种商品的总价    index2 单价
+						aLi[i].index = 0;
+						aLi[i].index1 = 0;
+						aLi[i].index2 = danj[i];
+						//初始化商品
+						init(aLi[i].id,0,danj[i]);
+						add(aLi[i].id);
+						odd(aLi[i].id);
+				}
+				function add(goods){
+					var oGoods = document.getElementById(goods);
+					var aInput = oGoods.getElementsByTagName("input");
+					var aSpan = oGoods.getElementsByTagName("span");
+					aInput[1].onclick = function(){
+						oGoods.index++;
+						oGoods.index1 = Number(oGoods.index)*Number(aSpan[1].innerHTML);
+						init(goods,oGoods.index,aSpan[1].innerHTML);
+						result();
+					}
+				}
+				function odd(goods){
+					var oGoods = document.getElementById(goods);
+					var aInput = oGoods.getElementsByTagName("input");
+					var aSpan = oGoods.getElementsByTagName("span");
+					aInput[0].onclick = function(){
+						if(oGoods.index>0){
+							oGoods.index--;
+							oGoods.index1 = Number(oGoods.index)*Number(aSpan[1].innerHTML);
+							init(goods,oGoods.index,aSpan[1].innerHTML);
+							result();
+						}
+					}
+				}
+				function result(){
+					var oTatol = document.getElementById("total");
+					var oPrice = document.getElementById("tprice");
+					var oExpen = document.getElementById("expen");
+					var arr = [];
+					var temp = 0;
+					var temp1 = 0;
+					for(var i=0;i<aLi.length;i++){
+					   temp+=Number(aLi[i].index);
+					   temp1+=Number(aLi[i].index1);
+					   if(aLi[i].index>0){
+					   	arr.push(aLi[i].index2);
+					   }
+					}
+					var max = arr[0];
+					for(var i=1;i<arr.length;i++){
+						if(max<arr[i]){
+							max = arr[i+1];
+						}
+				   }
+					oTatol.innerHTML = temp;
+					oPrice.innerHTML = temp1;
+					if(arr.length==0){
+						oExpen.innerHTML = "无";
+					}else{
+					   	oExpen.innerHTML = max+"元";
+					}
+					//清空数组
+					arr=[];
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li id="shop1">
+					<input type="button" value="-" />
+					<span></span>
+					<input type="button" value="+" />
+					单价：<span></span>元;
+					总价：<span></span>元
+				</li>
+				<li id="shop2">
+					<input type="button" value="-" />
+					<span></span>
+					<input type="button" value="+" />
+					单价：<span></span>元;
+					总价：<span></span>元
+				</li>
+				<li id="shop3">
+					<input type="button" value="-" />
+					<span></span>
+					<input type="button" value="+" />
+					单价：<span></span>元;
+					总价：<span></span>元
+				</li>
+				<li id="shop4">
+					<input type="button" value="-" />
+					<span></span>
+					<input type="button" value="+" />
+					单价：<span></span>元;
+					总价：<span></span>元
+				</li>
+				<li id="shop5">
+					<input type="button" value="-" />
+					<span></span>
+					<input type="button" value="+" />
+					单价：<span></span>元;
+					总价：<span></span>元
+				</li>
+			</ul>
+			商品的总数是：<span id="total"></span>件<br />
+			总价是：<span id="tprice"></span>元<br />
+			其中单价最贵的商品是：<span id="expen"></span>
+		</div>
+	</body>
+</html>

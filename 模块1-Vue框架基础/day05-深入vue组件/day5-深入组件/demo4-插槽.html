@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo4</title>
+</head>
+<body>
+  <div id="root">
+    <alert-box>
+      <h1>报错了</h1>
+      <h1>报错了</h1>
+      <div style="background-color: red;">
+        <h1>报错了</h1>
+        <h1>报错了</h1>
+      </div>
+    </alert-box>
+    
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data(){
+
+      }
+    })
+    app.component('alert-box',{
+      // 插槽的用法 <slot>插入的HTML元素</slot>
+      // 插槽的作用 可以植入HTML元素片段
+      template:`
+      <div class="demo-alert-box">
+        <slot></slot>
+      </div>
+      `
+    })
+    app.mount("#root")
+  </script>
+</body>
+</html>

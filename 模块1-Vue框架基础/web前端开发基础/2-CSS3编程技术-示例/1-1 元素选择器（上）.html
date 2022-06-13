@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器-普通选择器</title>
+    <style>
+        /*******************以下是标签选择器1/2/3********************/
+        /* span标签选择器（1），字体颜色为红色 */
+        span {
+           color: red;
+        }
+
+        /* ul 标签选择器（2），去掉列表前面的小圆点 */
+        ul {        
+            list-style: none; /* 去掉无序列表前的小圆点 */
+        }
+
+        /* a标签选择器（3），去掉超链接的下划线 */
+        a {
+            /* 去掉超链接的下划线 */
+            text-decoration: none;
+        } 
+
+        /*******************4.以下是ID选择器********************/
+        #part1 {
+            color: blue;
+        }
+
+        /*******************5/6/7.以下是样式选择器********************/
+        .success {
+            color: pink;
+        }
+        .spec {
+            font-weight: bold;
+        }
+        
+        
+        /*******************8.以下是原子类举例********************/
+        .f12 {
+            font-size: 12px;
+        }
+        .f14 {
+            font-size: 14px;
+        }
+        .f16 {
+            font-size: 16px;
+        }
+
+        .color-red {
+            color: red;
+        }
+        .color-blue {
+            color: blue;
+        }
+        .color-pink {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.标签选择器（一） -->
+    <h2>选择span标签</h2>
+     <div>
+        <p>一分耕耘一分收获，</p>
+        <span>未必！</span>
+        <p>九分耕耘一分收获，</p>
+        <p><span>一定。</span></p>
+     </div>  
+
+     <!-- 2.标签选择器（二） -->
+     <h2>相思（去掉小圆点）</h2>
+     <ul >
+         <li>红豆生南国</li>
+         <li>春来发几枝</li>
+         <li>愿君多采撷</li>
+         <li>此物最相思</li>
+     </ul>
+
+    <!-- 3.标签选择器（三）     -->
+     <h2>超链接（去掉下划线）</h2>
+     <div>
+         <a href="">百度一下</a>
+     </div>
+
+     <!-- 4.ID选择器 -->
+     <h2>ID选择器</h2>
+     <p id="part1">这里是第一部分内容</p>
+
+     <!-- 5.Class选择器 -->
+     <h2>Class选择器</h2>
+     <p class="success">
+        操作成功！
+     </p>
+
+     <!-- 6.多标签同一Class -->
+    <h2>多个标签同一个class</h2>
+    <p class="success">操作成功！</p>
+    <ul>
+         <li>张三</li>
+         <li class="success">李四</li>
+    </ul>
+    <div>
+         <span class="success">身无彩凤双飞翼，心有灵犀一点通</span>
+    </div>
+
+    <!-- 7.同一标签多个Class -->
+    <h2>同一标签多个class</h2>
+    <p class="success spec">
+        操作成功！
+    </p>
+
+    <!-- 8.使用原子类 -->
+    <p class="f14 color-blue">长大后，我就称了你...</p>
+    
+
+
+<br>
+<br>
+<br>
+
+</body>
+</html>
+
+

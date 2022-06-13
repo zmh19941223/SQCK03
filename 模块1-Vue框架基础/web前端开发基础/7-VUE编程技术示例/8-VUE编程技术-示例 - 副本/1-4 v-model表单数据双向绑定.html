@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model数据双向绑定</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  v-model指令，用于在表单控件或者组件上创建数据的双向绑定,默认情况下每次修改立即绑定
+    ▲▲▲▲▲  v-model的修饰符，用于修正用户的输入
+                  .lazy :只有在回车或者失去焦点后，才进行数据绑定
+                  .number：当用户输入数字类型时，自动把用户输入转换为数字类型
+                  .trim：去除字符串左右两边的空格
+  
+  -->
+<body>
+  
+  <div id="root">
+    
+    <div>
+      姓名：<input type="text" v-model="name">
+    </div>
+    <div>
+      民族：
+      <select v-model="nation">
+          <option value="汉族">汉族</option>
+          <option value="非汉族">非汉族</option>
+      </select>
+    </div>
+    <div>
+      性别：
+      <input type="radio" value="男" name="xb" v-model="sex"> 男
+      <input type="radio" value="女" name="xb" v-model="sex"> 女
+    </div>
+    <div>
+      爱好：
+      <input type="checkbox" value="打篮球" name="ah" v-model="hobby"> 打篮球
+      <input type="checkbox" value="踢足球" name="ah" v-model="hobby"> 踢足球
+      <input type="checkbox" value="唱歌"   name="ah" v-model="hobby"> 唱歌
+    </div>
+    <div>
+       自我介绍：<textarea cols="30" rows="5" v-model="introduce "></textarea>
+    </div>
+    <div>
+       体重：<input type="number" v-model.number="weight">
+    </div>
+    <h2>输入结果：</h2>
+    <div>姓名：{{name}}</div>
+    <div>民族：{{nation}}</div>
+    <div>性别：{{sex}}</div>
+    <div>爱好：{{hobby}}</div>
+    <div>自我介绍：{{introduce }}</div>
+    <div>体重：{{weight }}</div>
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            name: '',
+            nation:'',
+            sex:'',
+            hobby:[],
+            introduce:'',
+            weight:''
+          }
+      }
+    });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

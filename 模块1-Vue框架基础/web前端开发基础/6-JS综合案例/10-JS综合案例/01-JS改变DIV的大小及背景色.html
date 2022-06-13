@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js改变DIV的大小及背景颜色</title>
+	<style type="text/css">
+		input{
+			border: none;
+		}
+		input{
+			padding: 0;
+		}
+		.wrap{
+			position: relative;
+			margin-top: 10px;
+			margin-left: 10px;
+			z-index: 2;
+		}
+		body{
+			margin: 0;
+			height: 100%;
+		}
+		/* 待设置的盒子 */
+		.wrap #box{
+			border: 4px solid #000;
+			width: 100px;
+			height: 100px;
+			margin-top: 10px;
+		}
+		/* 点击设置按钮的样式 */
+		.wrap #btn{
+			width: 100px;
+			height: 30px;
+			background: red;
+			color: white;
+
+		}
+		/* span标签的样式 */
+		.wrap #oSpan{
+			font-weight: bold;
+		}
+		/* 蒙层样式 */
+		#Mongolia_layer{
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 3;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.2);
+		}
+		
+		#Mongolia_layer #panel .p_div1:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		#Mongolia_layer #panel {
+			border: 10px solid #9b939e;
+			width: 300px;
+			height: 192px;
+			position: absolute;
+			left: 500px;
+			top: 300px;
+			padding-top: 10px;
+
+		}
+		#Mongolia_layer #panel .p_div1{
+			width: 235px;
+			height: 32px;
+			font-size: 12px;
+			font-family: "宋体";
+			margin-bottom: 8px;
+			margin-left: 33px;
+			line-height: 32px;
+			cursor: pointer;
+		}
+		#Mongolia_layer #panel .p_div1 span{
+			float: left;
+		}
+		#Mongolia_layer #panel .p_div1 .p_div1_span{
+			width: 34px;
+			height: 30px;
+			text-align: center;
+			line-height: 32px;
+			margin-right: 5px;
+			border: 1px solid #bebebe;
+			background: #efeff1;
+		}
+		#Mongolia_layer #panel .p_div1 .width-height{
+			width: 96px;
+			text-align: right;
+		}
+		#Mongolia_layer #panel .p_div1 .red{
+			background: #eb758d;
+			color: white;
+			/*cursor: pointer;*/
+		}
+		#Mongolia_layer #panel .p_div1 .yellow{
+			background: #f6f2a7;
+			color: white;
+			/*cursor: pointer;*/
+		}
+		#Mongolia_layer #panel .p_div1 .blue{
+			background: #9eceeb;
+			color: white;
+			/*cursor: pointer;*/
+		}
+		#Mongolia_layer #panel #panel_btn{
+			width: 124px;
+			height: 30px;
+			margin-left: 90px;
+			margin-top: 30px;
+		}
+		#Mongolia_layer #panel #panel_btn:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		#Mongolia_layer #panel #panel_btn input{
+			float: left;
+			width: 60px;
+			height: 30px;
+			background: #002851;
+			color: white;
+			text-align: center;
+			line-height: 30px;
+		}
+		#Mongolia_layer #panel #panel_btn input:first-child{
+			margin-right: 4px;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.getElementById("btn");//点击设置按钮
+			var oMon = document.getElementById("Mongolia_layer");//蒙层div
+			// 三种颜色
+			var oRed = document.getElementById("s_red");
+			var oYellow = document.getElementById("s_yellow");
+			var oBlue = document.getElementById("s_blue");
+			// 三种宽度
+			var oWidth_2 = document.getElementById("width_2");
+			var oWidth_3 = document.getElementById("width_3");
+			var oWidth_4 = document.getElementById("width_4");
+			// 三种高度
+			var oHeight_2 = document.getElementById("height_2");
+			var oHeight_3 = document.getElementById("height_3");
+			var oHeight_4 = document.getElementById("height_4");
+			// 恢复和确定按钮
+			var oReset = document.getElementById("reset");
+			var oOk = document.getElementById("ok");
+			// 待设置的DIV
+			var oBox = document.getElementById("box");
+			// 点击设置按钮的方法
+			oBtn.onclick = function(){
+				oMon.style.display = "block";
+			}
+			// 三种颜色，当鼠标移入的时，设置背景颜色
+			oRed.onmouseover = function(){
+				oRed.style.background = "red";
+			}
+			oYellow.onmouseover = function(){
+				oYellow.style.background = "yellow";
+			}
+			oBlue.onmouseover = function(){
+				oBlue.style.background = "blue";
+			}
+			// 三个宽度、三个高度，当鼠标移入时，设置背景颜色
+			oWidth_2.onmouseover = function (){
+				oWidth_2.style.background = "#f4ed73";
+			}
+			oWidth_3.onmouseover = function (){
+				oWidth_3.style.background = "#f4ed73";
+			}
+			oWidth_4.onmouseover = function (){
+				oWidth_4.style.background = "#f4ed73";
+			}
+			oHeight_2.onmouseover = function (){
+				oHeight_2.style.background = "#f4ed73";
+			}
+			oHeight_3.onmouseover = function (){
+				oHeight_3.style.background = "#f4ed73";
+			}
+			oHeight_4.onmouseover = function (){
+				oHeight_4.style.background = "#f4ed73";
+			}
+			// 鼠标移出时，去掉背景颜色
+			oRed.onmouseout = function(){
+				oRed.style.background = '';
+			}
+			oYellow.onmouseout = function(){
+				oYellow.style.background = '';
+			}
+			oBlue.onmouseout = function(){
+				oBlue.style.background = '';
+			}
+			oWidth_2.onmouseout = function (){
+				oWidth_2.style.background = "";
+			}
+			oWidth_3.onmouseout = function (){
+				oWidth_3.style.background = "";
+			}
+			oWidth_4.onmouseout = function (){
+				oWidth_4.style.background = "";
+			}
+			oHeight_2.onmouseout = function (){
+				oHeight_2.style.background = "";
+			}
+			oHeight_3.onmouseout = function (){
+				oHeight_3.style.background = "";
+			}
+			oHeight_4.onmouseout = function (){
+				oHeight_4.style.background = "";
+			}
+			// 鼠标点击的时，设置DIV的大小、背景颜色
+			oRed.onclick = function(){
+				oBox.style.background = "red";
+			}
+			oYellow.onclick = function(){
+				oBox.style.background = "yellow";
+			}
+			oBlue.onclick = function(){
+				oBox.style.background = "blue";
+			}
+			oWidth_2.onclick = function (){
+				oBox.style.width = "200px";
+			}
+			oWidth_3.onclick = function (){
+				oBox.style.width = "300px";
+			}
+			oWidth_4.onclick = function (){
+				oBox.style.width = "400px";
+			}
+			oHeight_2.onclick = function (){
+				oBox.style.height = "200px";
+			}
+			oHeight_3.onclick = function (){
+				oBox.style.height = "300px";
+			}
+			oHeight_4.onclick = function (){
+				oBox.style.height = "400px";
+			}
+			// 确定按钮-点击事件，蒙层隐藏
+			oOk.onclick = function (){
+				oMon.style.display = "none";
+			}
+			// 恢复按钮，点击事件
+			oReset.onclick = function (){
+				oBox.style.width = "";
+				oBox.style.height = "";
+				oBox.style.background = "";
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<span id="oSpan">请为下面的DIV设置样式：</span>
+		<input type="button" name="" value="点击设置" id="btn">
+		<div id="box"></div>	
+	</div>
+	
+	<!-- 蒙层 -->
+	<div id="Mongolia_layer">
+		<div id="panel">
+			<div class="p_div1">
+				<span>请选择背景颜色：</span>
+				<span class="p_div1_span red" id="s_red">红</span>
+				<span class="p_div1_span yellow" id="s_yellow">黄</span>
+				<span class="p_div1_span blue" id="s_blue">蓝</span>
+			</div>
+			<div class="p_div1">
+				<span class="width-height">请选择宽(px)：</span>
+				<span class="p_div1_span" id="width_2">200</span>
+				<span class="p_div1_span" id="width_3">300</span>
+				<span class="p_div1_span" id="width_4">400</span>
+			</div>
+			<div class="p_div1">
+				<span class="width-height">请选择高(px)：</span>
+				<span class="p_div1_span" id="height_2">200</span>
+				<span class="p_div1_span" id="height_3">300</span>
+				<span class="p_div1_span" id="height_4">400</span>
+			</div>
+
+			<div id="panel_btn">
+				<input type="button" name="" value="恢复" id="reset">
+				<input type="button" name="" value="确定" id="ok">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

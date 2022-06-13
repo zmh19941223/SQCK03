@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todolist</title>
+  <style>
+    #todoapp {
+      width: 300px;
+      height: 450px;
+      border: 3px solid gold;
+      margin: auto;
+    }
+
+    .main ul {
+      list-style: none;
+      width: 200px;
+      margin: 20px auto;
+    }
+
+    .main ul>li {
+      width: 150px;
+      height: 20px;
+      margin: 5px auto;
+    }
+
+    .view span {
+      width: 20px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .header input {
+      display: block;
+      margin: auto;
+    }
+
+    .clear-completed {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div id="todoapp">
+    <div class="header">
+      <h1>小海记事本</h1>
+      <input type="text" 
+      placeholder="请输入任务"
+      v-model.trim="task"  
+      @keyup.enter="add(task)"
+      >
+    </div>
+    <!-- 展示任务 -->
+    <div class="main">
+      <ul class="todolist">
+        <li class="todo" 
+        v-for="item in todo_list"
+        >{{item}}</li>
+      </ul>
+    </div>
+    <div class="footer" v-show="todo_list.length!=0">
+      <span class="todo-count">{{todo_list.length}} tasks left</span>
+      <button class="clear-completed" @click="empty">清空</button>
+    </div>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    //创建vue对象
+    const app = Vue.createApp({
+      data(){
+        todo_list=['吃饭','睡觉','上班','学习']  //初始任务
+        task=''
+        return {
+          todo_list,
+          task
+        }
+      },
+      methods:{
+        add(todo){
+          if(todo){ //判断任务内容不为空
+            // console.log('接收到任务',todo)
+            this.todo_list.unshift(todo) //任务追加到列表中
+            this.task='' //清空输入框
+          }
+        },
+        empty(){
+          this.todo_list=[]  //清空任务列表
+        }
+      }
+    })
+    //挂载--会返回vue实例对象
+    const vm = app.mount('#todoapp')
+  </script>
+</body>
+</html>

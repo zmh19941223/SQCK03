@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素</title>
+    <style>
+        /* 1.在a标签的内容的前面，添加一个三角形 */
+        a::before {
+            content: "🔺";
+        }
+
+        p::after{
+            content: "！";
+        }
+       
+
+    </style>
+
+</head>
+<body>
+    <!-- 伪元素1 -->
+    <a href="">超链接1</a>
+    <a href="">超链接2</a>
+    <a href="">超链接3</a>
+
+    <!-- 伪元素2 -->
+    <p>此地无银三百两</p>
+    <p>隔壁王二不曾偷</p>
+
+</body>
+</html>

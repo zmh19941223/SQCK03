@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景绘制区</title>
+    <style>
+        /*
+            background-color属性用来设置背景颜色，padding 区域，是有背景颜色的
+            background-clip 属性，用来指定背景的绘制区域（俗称：背景裁剪）
+                            border-box：背景绘制在边框及以内（默认）
+                            padding-box：背景绘制在padding及以内
+                            content-box：背景绘制在内容区
+
+        */
+        div {
+            padding:35px;
+        }
+        /* 1. 背景绘制在边框及以内（默认） */
+        #example1 {
+            border: 10px dotted black;
+            background-color: yellow;
+            /* 默认：border-box*/
+            /* background-clip:border-box; */  
+        }
+        /* 2. 背景绘制在padding及以内 */
+        #example2 {
+            border: 10px dotted black;
+            background-color: yellow;
+            background-clip: padding-box;
+        }
+        /* 3. 背景绘制在内容区 */
+        #example3 {
+            border: 10px dotted black;
+            background-color: yellow;
+            background-clip: content-box;
+            background-size:10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>背景裁剪</h1>
+    <h2>1、background-clip:border-box（默认）</h2>
+    <div id="example1">
+        <p>背景绘制在边框及以内（默认）</p>
+    </div>
+
+    <h2>2、background-clip: padding-box</h2>
+    <div id="example2">
+        <p>背景绘制在padding及以内</p>
+    </div>
+
+    <h2>3、background-clip: content-box</h2>
+    <div id="example3">
+        <p>背景绘制在内容区</p>
+    </div>
+</body>
+</html>

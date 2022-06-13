@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <button @click='ate=!ate'>吃饭/消化</button>
+    <life-demo v-if="ate">
+    </life-demo>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = Vue.createApp({
+      
+      data(){
+        return{
+          ate: false
+        }
+      },
+    })
+    const comp = app.component('life-demo',{
+      //生命周期钩子
+      beforeCreate(){
+        console.log('beforeCreated')
+      },
+      created(){
+        console.log('created')
+      },
+      beforeMount(){
+        console.log('beforeMount')
+      },
+      mounted(){
+        console.log('mounted')
+      },
+      beforeUnmount(){
+        console.log('beforeUnmount')
+      },
+      unmounted(){
+        console.log('unmounted')
+      },
+      beforeUpdate() {
+        console.log('beforeUpdate')
+      },
+      updated() {
+        console.log('updated')
+      },
+      template:`
+      <div>
+        吃了
+      </div>
+      `
+    })
+    const vm = app.mount('#root')
+  </script>
+</body>
+</html>

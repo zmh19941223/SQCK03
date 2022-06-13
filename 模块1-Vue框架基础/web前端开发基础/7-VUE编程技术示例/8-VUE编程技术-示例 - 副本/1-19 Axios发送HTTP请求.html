@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios发送HTTP请求</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Axios发送HTTP请求</h1>
+    <h2>前提</h2>
+    <p>1.Promise对象知识</p>
+    <p>2.需要了解箭头函数的使用</p>
+
+    <script>
+        // 1.get 请求1
+        axios.get('http://47.105.51.33:9090/student/index.html?ID=12345')
+        .then(function(res){
+            console.log('请求一：'+res.data);
+        });
+
+        //2.get 请求2
+        axios.get('http://47.105.51.33:9090/student/index.html',{
+            params:{
+                ID:12345
+            }            
+        })
+        .then(function(res){
+            console.log('请求二：'+res.data);
+        });
+        
+  
+        //3.post 请求(请求体data默认是json格式)
+        axios.post('http://47.105.51.33:9090/api/user/login',{
+                userName:'13575726536',
+                password:'111111'
+            },{
+                headers: {'Content-Type':'application/json;charset=utf8'}
+            }
+        )
+        .then(function(res){
+            console.log('请求三：'+res.data.message);
+        });
+
+        //4.axios API (请求体data默认是json格式)
+        axios({
+            method: "POST",
+            url: "http://47.105.51.33:9090/api/user/login",
+            data: {"userName": "13575726536",
+                   "password": "111111" },
+            headers: {"Content-Type": "application/json" }
+        }).then(function(res){
+            console.log('请求四：'+res.data.message);
+        });
+
+        //5.axios API (如果请求体是表单格式)
+        //使用URLSearchParams API来构造表单数据，还有一种方式是使用qs库
+        const params = new URLSearchParams();
+              params.append('username', 'admin');
+              params.append('password', 'admin123');
+        console.log(params);
+        axios({
+            method: "POST",
+            url: "http://devops.sqtest.online:8073/api/user/login/",
+            data: params,
+            headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" }
+        }).then(function(res){
+            // debugger
+            console.log('请求五：'+res.data.msg);
+        });
+
+
+</script>
+</body>
+</html>

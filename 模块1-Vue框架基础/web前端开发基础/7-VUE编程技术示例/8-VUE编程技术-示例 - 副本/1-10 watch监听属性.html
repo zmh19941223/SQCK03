@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch 监听属性</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  watch：表示监听属性，它的作用是当被监听的属性发生变化时，监听函数就会被执行
+    
+  -->
+<body>
+  
+  <div id="root">
+    <h2>1.监听属性</h2>
+    <div>
+      {{count}}
+    </div>
+   
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            message: '12345',
+            count: 0
+          }
+      }, 
+    watch: {
+      // 当被监听的属性count发生变化时，函数会执行
+      // 在控制台执行：vm.count=123
+      count (a,b){
+        alert('属性修改前：'+b+' 修改后：'+a);
+      }
+    }  
+  });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

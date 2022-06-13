@@ -1,0 +1,44 @@
+2021-10-16 21:46:58.913 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: case001_login, TestCase ID: c6185b0a-696a-43ba-9cd3-3edd0bdbd5e8
+2021-10-16 21:46:58.917 | INFO     | httprunner.runner:__run_step:292 - run step begin: do_login_request >>>>>>
+2021-10-16 21:47:01.025 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 43921
+2021-10-16 21:47:01.025 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-16 21:47:01.026 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-c6185b0a-696a-43ba-9cd3-3edd0bdbd5e8-018917",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-16 21:47:01.033 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=ngfepajh34qa0ei23xa57db64owbo9im; HttpOnly; Path=/",
+    "Date": "Sat, 16 Oct 2021 13:47:01 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "ngfepajh34qa0ei23xa57db64owbo9im"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-16 21:47:01.034 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2105.8 ms, response_length: 0 bytes
+2021-10-16 21:47:01.035 | INFO     | httprunner.runner:__run_step:304 - run step end: do_login_request <<<<<<
+

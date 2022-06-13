@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04-自动生成li元素</title>
+		<style>
+			#div1{
+				width: 500px;
+				height: 2px;
+				background: #000;
+				margin-bottom: 5px;
+			}
+			#box{
+				position: relative;
+				height: 100px;
+			}
+			#box ul li{
+				position: absolute;
+				list-style: none;
+				width: 100px;
+				height: 100px;
+				background: red;
+				text-align: center;
+				line-height: 100px;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		输入li个数：<input type="text" id="sum"/>
+		<input type="button" id="btn" value="点击生成Li元素" />
+		<div id="box">
+			<ul>
+			</ul>
+		</div>
+		<script>
+			var aUl = document.getElementsByTagName("ul")[0];
+			var aLi = aUl.getElementsByTagName("li");
+			var oBtn = document.getElementById("btn");
+			var oSum = document.getElementById("sum");
+			var count ;
+			var onOFF = true;
+			
+			var arr = ["red","yellow","blue","green"];
+				oBtn.onclick=function(){
+					count = oSum.value;
+					aUl.innerHTML="";
+					if(onOFF){
+						for(var i=0;i<count;i++){
+							aLi.index = i;
+							aUl.innerHTML += "<li></li>";
+							aLi[i].innerHTML = i;
+							aLi[i].style.left = 110*i+"px";
+							aLi[i].style.top = 0;
+							aLi[i].style.background = arr[i%4];
+							console.log(i%4);
+						}
+						//onOFF = false;
+					}	
+				}
+		</script>
+	</body>
+</html>

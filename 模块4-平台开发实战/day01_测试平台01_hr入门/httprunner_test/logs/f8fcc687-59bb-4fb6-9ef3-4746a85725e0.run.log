@@ -1,0 +1,81 @@
+2021-10-16 20:42:21.151 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: testcase description, TestCase ID: f8fcc687-59bb-4fb6-9ef3-4746a85725e0
+2021-10-16 20:42:21.153 | INFO     | httprunner.runner:__run_step:292 - run step begin: /api/mgr/sq_mgr/ >>>>>>
+2021-10-16 20:42:23.192 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 46857
+2021-10-16 20:42:23.192 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 8888
+2021-10-16 20:42:23.192 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : GET
+url      : http://localhost/api/mgr/sq_mgr/?action=list_course&pagenum=1&pagesize=20
+headers  : {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "application/json, text/plain, */*",
+    "Connection": "keep-alive",
+    "Host": "localhost",
+    "Pragma": "no-cache",
+    "Cache-Control": "no-cache",
+    "sec-ch-ua": "\"Chromium\";v=\"94\", \"Google Chrome\";v=\"94\", \";Not A Brand\";v=\"99\"",
+    "DNT": "1",
+    "X-CSRFToken": "SaPBg00q7tZfvX28qB7ElmZ2rTD2iqCOW3qnIyzDNzr5lICpo0dxt0rqJBGgIdEz",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+    "Referer": "http://localhost/mgr/ps/mgr/index.html",
+    "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-TW;q=0.6",
+    "Cookie": "_ga=GA1.1.609454988.1613223854; csrftoken=SaPBg00q7tZfvX28qB7ElmZ2rTD2iqCOW3qnIyzDNzr5lICpo0dxt0rqJBGgIdEz; Pycharm-d264d2b1=cbb5d756-f9fe-489f-abf6-462ccbba8b0a; Pycharm-1d24832e=6b858831-640e-44d6-85df-e006caf22c4a; isLogin=true; io=Z-BfiTB6ZTivVucfAAAF; aliyungf_tc=168d50805c08cbcaa91cf9be301b6262e02471797005602548627232f39ad3c3; sessionid=xn30huudw9i7u6zwpf29itlw8ehoe7od",
+    "HRUN-Request-ID": "HRUN-f8fcc687-59bb-4fb6-9ef3-4746a85725e0-141165"
+}
+cookies  : {
+    "Pycharm-1d24832e": "6b858831-640e-44d6-85df-e006caf22c4a",
+    "Pycharm-d264d2b1": "cbb5d756-f9fe-489f-abf6-462ccbba8b0a",
+    "_ga": "GA1.1.609454988.1613223854",
+    "aliyungf_tc": "168d50805c08cbcaa91cf9be301b6262e02471797005602548627232f39ad3c3",
+    "csrftoken": "SaPBg00q7tZfvX28qB7ElmZ2rTD2iqCOW3qnIyzDNzr5lICpo0dxt0rqJBGgIdEz",
+    "io": "Z-BfiTB6ZTivVucfAAAF",
+    "isLogin": "true",
+    "sessionid": "xn30huudw9i7u6zwpf29itlw8ehoe7od"
+}
+body     : None
+
+2021-10-16 20:42:23.200 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "169",
+    "Vary": "Cookie",
+    "Date": "Sat, 16 Oct 2021 12:42:23 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0,
+    "retlist": [
+        {
+            "id": 1401,
+            "name": "test",
+            "desc": "test",
+            "display_idx": 1
+        },
+        {
+            "id": 1402,
+            "name": "test1",
+            "desc": "test1",
+            "display_idx": 2
+        }
+    ],
+    "total": 2
+}
+
+2021-10-16 20:42:23.201 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2026.72 ms, response_length: 0 bytes
+2021-10-16 20:42:23.202 | INFO     | httprunner.response:validate:249 - assert status_code equal 200(int)	==> pass
+2021-10-16 20:42:23.202 | INFO     | httprunner.response:validate:249 - assert headers."Content-Type" equal application/json(str)	==> pass
+2021-10-16 20:42:23.202 | INFO     | httprunner.response:validate:249 - assert body.retcode equal 0(int)	==> pass
+2021-10-16 20:42:23.202 | INFO     | httprunner.response:validate:249 - assert body.total equal 2(int)	==> pass
+2021-10-16 20:42:23.202 | INFO     | httprunner.runner:__run_step:304 - run step end: /api/mgr/sq_mgr/ <<<<<<
+

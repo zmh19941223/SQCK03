@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级函数、行内元素互转</title>
+    <style>
+        /* 
+            display 属性规定元素应该生成的框的类型，因此可以用它来进行块级元素和行内元素转换
+
+        */
+        a,span {
+            display: block; /*行内元素转块级元素*/
+            width: 200px;   /*可以设置宽高了*/
+        }
+
+        p,div {
+            display: inline;/*块级元素转换为行内元素*/
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <h2>1.以下a、span、元素转换为块级元素了（不并排显示了）</h2>
+    <a href="www.baidu.com">到百度</a>
+    <a href="www.google.com">到谷歌</a>
+    <span>你好，</span>
+    <i>天猫</i>
+    
+    <hr>
+    
+    <h2>2.以下p、h元素转换为行内元素了(可以并排显示)</h2>
+    <p>贵州茅台</p>
+    <div>不错</div>
+    
+</body>
+</html>

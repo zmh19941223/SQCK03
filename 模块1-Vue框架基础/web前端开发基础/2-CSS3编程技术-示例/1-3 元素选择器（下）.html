@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器-关系选择器及属性选择器</title>
+    <style>
+       /* 1.子选择器，仅选择儿子。和空格不同 */
+       div>a{
+          color:blue;
+       }
+       /* 2.相邻兄弟选择器 */
+       img+p{
+           background:pink;
+       }
+       /* 3.通用兄弟选择器*/
+       p~span{
+           background: yellow;
+       }
+       /* 4.属性选择器 */
+       input[name="username"]{
+           color: red;
+       }
+
+    </style>
+</head>
+<body>
+    <!-- 1.【关系选择器-子选择器】 -->
+    <div>
+        <p><a href="">点我啊1</a></p>
+        <a href="">点我啊2</a>
+    </div>
+
+    <!-- 2.【关系选择器-相邻兄弟选择器】 -->
+    <div>
+        <img src="image/fj.png" width="100px">
+        <p>远亲不如近邻啊！</p>
+        <p>远亲真不如近邻啊！</p>
+    </div>    
+
+    <!-- 3.【关系选择器-通用兄弟选择器】 -->
+    <div>
+        <p>第一段落</p>
+        <span>冬天过去了</span>
+        <span>春天还会远吗</span>
+    </div>
+    
+    <!-- 4.属性选择器，input标签的name属性=username的，字体红色 -->
+    <div>
+        用户名：<input type="text" name="username" id="">
+        密码:<input type="text" name="password" id="">
+    </div>
+
+
+<br>
+<br>
+<br>
+
+</body>
+</html>
+
+

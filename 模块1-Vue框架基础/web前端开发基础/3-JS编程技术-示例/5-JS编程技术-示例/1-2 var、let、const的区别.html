@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var、let、const的区别
+    </title>
+</head>
+<body>
+    <dir></dir>
+    <script>
+        //1.证明：先使用，再声明
+        console.log(a1);
+        // console.log(a2);//异常，let变量不存在变量提升
+        // console.log(a3);//异常，const常量不存在常量提升
+        var a1=10;
+        let a2=20;
+        const a3=30;
+
+        //2.证明：值是否可以修改
+        var b1=10;
+        let b2=20;
+        const b3=30;
+        b1=100;
+        b2=200;
+        // b3=300;//异常，常量不可以修改
+
+        //3.证明：先声明再赋值
+        var c1;
+        let c2;
+        // const c3;//异常,声明的时候必须赋值
+        c1=100;
+        c2=200;
+        c3=300;
+
+        //4.证明：函数作用域外是否可以访问
+        (function test(){
+            var d1=100;
+            let d2=200;
+            const d3=300;
+        })();
+        // console.log(d1);//异常
+        // console.log(d2);//异常
+        // console.log(d3);//异常
+        
+        //5.证明：块作用域外是否可以访问
+        {
+            var e1=100;
+            let e2=200;
+            const e3=300;
+        }
+        console.log(e1);
+        // console.log(e2);//异常，只能在块作用域里访问
+        // console.log(e3);//异常，只能在块作用域里访问
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>03-带缩略图的图片轮播</title>
+		<style>
+			p{
+				margin: 0;
+			}
+			#wrap #wrap_title{
+				margin-bottom: 10px;
+			}
+			#wrap{
+				width: 820px;
+				height: 600px;
+				background: url(img/10.jpg) no-repeat ;
+				margin: 10px auto;
+				color: white;
+				padding: 10px;
+			}
+			#wrap #box #box_img{
+				position: relative;
+			}
+			#wrap #box #box_img span{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background: rgba(0,0,0,0.5);
+				text-align: center;
+				line-height: 50px;
+				font-weight: bold;
+				font-size: 30px;
+			}
+			#wrap #box #box_img #left{
+				left: 20px;
+				top: calc(50% - 25px);
+				cursor: pointer;
+			}
+			#wrap #box #box_img #right{
+				left: 750px;
+				top: calc(50% - 25px);
+				cursor: pointer;
+			}
+			#wrap #box #bar{
+				position: relative;
+				margin-top: 10px;
+				height: 50px;
+				width: 100%;
+			}
+			#wrap #box #bar span{
+				position: relative;
+				float: left;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: gray;
+				margin-right: 10px;
+				margin-top: 10px;
+				cursor: pointer;
+			}
+			#wrap #box #bar span:first-child{
+				margin-left: calc(50% - 75px);
+			}
+			#wrap #box #bar span .suspension{
+				padding: 5px;
+				width: 100px;
+				height: 55px;
+				display: none;
+			}
+			#wrap #box #bar span .suspension p{
+				width: 100px;
+				height: 60px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<p id="wrap_title">带缩略图的图片轮换</p>
+			<div id="box">
+				<div id="box_img">
+					<img src="img/11.jpg" id="transform"/>
+					<span id="left">&lt;</span>
+					<span id="right">&gt;</span>
+				</div>
+				<div id="bar">
+					<span>
+						<div class="suspension">
+							<p></p>
+						</div>
+					</span>
+					<span>
+						<div class="suspension">
+							<p></p>
+						</div>
+					</span>
+					<span>
+						<div class="suspension">
+							<p></p>
+						</div>
+					</span>
+					<span>
+						<div class="suspension">
+							<p></p>
+						</div>
+					</span>
+					<span>
+						<div class="suspension">
+							<p></p>
+						</div>
+					</span>
+				</div>
+			</div>
+		</div>
+		<script>
+			window.onload = function(){
+				var oLeft = document.getElementById("left");
+				var oRight = document.getElementById("right");
+				var oTrans = document.getElementById("transform");
+				var arr = ["img/11.jpg","img/12.jpg","img/13.jpg","img/14.jpg","img/15.jpg"];
+				var oBar = document.getElementById("bar");
+				var oSus = oBar.getElementsByTagName("p");
+				var oDiv = oBar.getElementsByTagName("div");
+				var aSpan = oBar.getElementsByTagName("span");
+				var num = 1;
+				oRight.onclick = function(){
+					if(num<arr.length){
+						oTrans.src = arr[num];
+						num++;
+					}else{
+						num = 0;
+						oTrans.src = arr[num];
+						num++;
+					}
+					for(var j=0;j<aSpan.length;j++){
+						aSpan[j].style.background = "";
+					}
+						aSpan[num-1].style.background = "red";
+					}
+				oLeft.onclick = function(){
+					if(num>1){
+						oTrans.src = arr[num-2];
+						num--;
+					}else{
+						oTrans.src = arr[arr.length - num];
+						num = arr.length;
+					}
+					for(var j=0;j<aSpan.length;j++){
+						aSpan[j].style.background = "";
+					}
+						aSpan[num-1].style.background = "red";
+				}
+				for(var i = 0;i<aSpan.length;i++){
+						aSpan[i].index = i;
+						aSpan[i].onmouseover = function(){
+						console.log(arr[this.index]);
+						for(var j=0;j<arr.length;j++){
+							oSus[j].style.background = "";
+							oDiv[j].style.background = "";
+						}
+						oDiv[this.index].style.background = "#fff";
+						oDiv[this.index].style.position = "absolute";
+						oSus[this.index].style.background = "url("+arr[this.index]+")";
+						oSus[this.index].style.backgroundSize = "contain";
+						oSus[this.index].style.backgroundRepeat = "no-repeat";
+						var t = this.index;
+						console.log("----"+t);
+						oDiv[this.index].style.left = "-40px";
+						oDiv[this.index].style.bottom = "30px";
+						oDiv[this.index].style.display = "block";
+					}
+						aSpan[i].onclick = function(){
+							oTrans.src = arr[this.index];
+							for(var t = 0;t<arr.length;t++){
+								aSpan[t].style.background = "";
+							}
+							aSpan[this.index].style.background = "red";
+						}
+						aSpan[i].onmouseout = function(){
+							oSus[this.index].style.background = "";
+							oDiv[this.index].style.background = "";
+							oDiv[this.index].style.display = "none";
+						}
+				}
+			}
+		</script>
+	</body>
+</html>

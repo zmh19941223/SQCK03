@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>computed 计算属性</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  computed：表示计算属性，它的作用是方便处理复杂逻辑
+                     computed是有缓存，只有当依赖的内容发生变化时，才会重新计算
+                     虽然computed 实现的功能，methods都能实现，但是因为computed有缓存，因此性能更好
+  
+  -->
+<body>
+  
+  <div id="root">
+    <h2>1.计算属性</h2>
+    <div>
+      {{now1}}
+    </div>
+
+    <h2>2.方法</h2>
+    <div>
+      {{now2()}}
+    </div>
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            message: '12345',
+            count: 0
+          }
+      },
+    methods: {
+      // 在控制台执行：vm.now2()，每次执行的结果都会变，即：methods是不会缓存的
+      now2 (){
+        return Date.now() +'-' +this.count
+      }
+    },
+    computed: {
+      // 在控制台执行：vm.now1，每次执行的结果都相同，即：computed属性是会缓存的
+      now1 (){
+        return Date.now() +'-' +this.count
+      }
+    }  
+  });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

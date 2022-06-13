@@ -1,0 +1,23 @@
+config:
+  name: 删除课程
+  base_url: http://localhost
+
+teststeps:
+  -
+    name: 登录、添加课程并修改
+    testcase: day2/demo2_update_course.yml
+
+  -
+    name: 删除课程请求
+    request:
+      method: DELETE
+      url: /api/mgr/sq_mgr/
+      data:
+        action: delete_course
+        id: $course_id
+      cookies:
+        sessionid: $cookie
+    validate:
+      - equal:
+          - body.retcode
+          - 0

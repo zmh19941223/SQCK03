@@ -1,0 +1,4 @@
+部署测试环境--教官系统
+完成httprunner入门教程
+理解httprunner用例结构，尝试首先用例(yml或json格式)
+

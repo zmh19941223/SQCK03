@@ -1,0 +1,66 @@
+2021-10-16 21:49:54.756 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: case001_login, TestCase ID: 13874d76-ba62-44e4-a601-6a2b2ff228ed
+2021-10-16 21:49:54.759 | INFO     | httprunner.runner:__run_step:292 - run step begin: do_login_request >>>>>>
+2021-10-16 21:49:56.860 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 43982
+2021-10-16 21:49:56.861 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-16 21:49:56.862 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-13874d76-ba62-44e4-a601-6a2b2ff228ed-194761",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-16 21:49:56.869 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=1lnbf4nfrue9wqm7mslm3xs6darzxfyv; HttpOnly; Path=/",
+    "Date": "Sat, 16 Oct 2021 13:49:56 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "1lnbf4nfrue9wqm7mslm3xs6darzxfyv"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-16 21:49:56.869 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2099.57 ms, response_length: 0 bytes
+2021-10-16 21:49:56.870 | ERROR    | httprunner.response:validate:266 - assert retcode equal 0(int)	==> fail
+check_item: retcode
+check_value: retcode(str)
+assert_method: equal
+expect_value: 0(int)
+2021-10-16 21:49:56.871 | ERROR    | httprunner.runner:log_req_resp_details:194 - 
+******************************** DETAILED REQUEST & RESPONSE ********************************
+====== request details ======
+url: http://localhost/api/mgr/loginReq
+method: POST
+headers: {'HRUN-Request-ID': 'HRUN-13874d76-ba62-44e4-a601-6a2b2ff228ed-194761'}
+params: {}
+data: {'username': 'auto', 'password': 'sdfsdfsdf'}
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+json: None
+
+====== response details ======
+status_code: 200
+headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'SAMEORIGIN', 'Content-Length': '14', 'Vary': 'Cookie', 'Set-Cookie': 'sessionid=1lnbf4nfrue9wqm7mslm3xs6darzxfyv; HttpOnly; Path=/', 'Date': 'Sat, 16 Oct 2021 13:49:56 GMT', 'Server': '0.0.0.0'}
+body: '{"retcode": 0}'
+

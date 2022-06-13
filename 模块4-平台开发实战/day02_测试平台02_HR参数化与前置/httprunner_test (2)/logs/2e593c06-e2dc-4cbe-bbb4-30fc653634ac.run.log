@@ -1,0 +1,67 @@
+2021-10-19 21:23:46.011 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: login_demo, TestCase ID: 2e593c06-e2dc-4cbe-bbb4-30fc653634ac
+2021-10-19 21:23:46.013 | INFO     | httprunner.runner:__run_step:292 - run step begin: µÇÂ¼ >>>>>>
+2021-10-19 21:23:48.122 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 45533
+2021-10-19 21:23:48.123 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-19 21:23:48.124 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-2e593c06-e2dc-4cbe-bbb4-30fc653634ac-826014",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-19 21:23:48.130 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=uskma5bxt6iqdrk4ztkhj3dsrdf4ys9m; HttpOnly; Path=/",
+    "Date": "Tue, 19 Oct 2021 13:23:48 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "uskma5bxt6iqdrk4ztkhj3dsrdf4ys9m"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-19 21:23:48.131 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2107.91 ms, response_length: 0 bytes
+2021-10-19 21:23:48.132 | INFO     | httprunner.response:extract:179 - extract mapping: {'retcode': 0, 'cookie': 'uskma5bxt6iqdrk4ztkhj3dsrdf4ys9m'}
+2021-10-19 21:23:48.132 | ERROR    | httprunner.response:validate:266 - assert 0 equal 1(int)	==> fail
+check_item: 0
+check_value: 0(int)
+assert_method: equal
+expect_value: 1(int)
+2021-10-19 21:23:48.134 | ERROR    | httprunner.runner:log_req_resp_details:194 - 
+******************************** DETAILED REQUEST & RESPONSE ********************************
+====== request details ======
+url: http://localhost/api/mgr/loginReq
+method: POST
+headers: {'HRUN-Request-ID': 'HRUN-2e593c06-e2dc-4cbe-bbb4-30fc653634ac-826014'}
+params: {}
+data: {'username': 'auto', 'password': 'sdfsdfsdf'}
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+json: None
+
+====== response details ======
+status_code: 200
+headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'SAMEORIGIN', 'Content-Length': '14', 'Vary': 'Cookie', 'Set-Cookie': 'sessionid=uskma5bxt6iqdrk4ztkhj3dsrdf4ys9m; HttpOnly; Path=/', 'Date': 'Tue, 19 Oct 2021 13:23:48 GMT', 'Server': '0.0.0.0'}
+body: '{"retcode": 0}'
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise对象</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Promise对象语法学习</h1>
+    <h2>前提</h2>
+    <p>1.需要了解箭头函数的使用</p>
+
+    <script>
+        //1. 创建Promise对象，并执行异步处理业务
+        let p1=new Promise(
+            function(resolve,reject){
+                 //这里写异步业务处理......
+                 console.log('异步业务处理');
+                 if (1==1){
+                    resolve("随便什么参数-resolve");
+                 }else{
+                    reject("随便什么参数-reject");
+                }             
+            }
+        );
+        //2. 等待p1业务完成，才执行then方法。
+        let p2=p1.then(
+            res =>{
+                // abc();  故意搞一个异常
+                console.log(res);
+            },
+            rej =>{
+                console.log(rej);
+            }
+        )
+        //3.调用catch方法，捕获异常
+        let p3=p2.catch(
+            ()=> {
+                console.log('有异常');
+            }
+        )
+        
+
+    </script>
+</body>
+</html>

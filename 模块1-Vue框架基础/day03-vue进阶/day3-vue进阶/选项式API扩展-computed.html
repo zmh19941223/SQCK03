@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选项式API</title>
+</head>
+<body>
+  <div id="root">
+    <!-- <h3>{{chilema}}</h3>
+    <button @click="ate=!ate">吃饭/消化</button> -->
+    <button @click="now">计算属性</button>
+    <button @click="now2">方法</button>
+  </div>
+  <script src="../vue.js"></script>
+
+  <script>
+    const vm = Vue.createApp({
+      data(){
+        return{
+          ate: true
+        }
+      },
+      computed:{  //计算属性--用于简化模板逻辑
+        chilema(){  //定义方法，--模板里面当初属性来用
+          console.log('执行')
+          return this.ate?'吃过了':'没吃呢'
+        },
+        now(){
+          console.log('computed',Date.now())
+        }
+      },
+      //computed与methods的区别 
+      //computed会缓存结果(当操作的数据（data里的）没有发生改变时)
+      //methods会立刻执行，不缓存结果
+      methods:{
+        now2(){
+          console.log('methods',Date.now())
+        }
+      }
+    }).mount('#root')
+
+  </script>
+</body>
+</html>

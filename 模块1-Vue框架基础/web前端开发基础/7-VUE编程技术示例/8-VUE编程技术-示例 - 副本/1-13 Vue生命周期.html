@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 的生命周期函数</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <!-- 
+    ▲▲▲▲▲  Vue 的生命周期函数（也叫钩子函数）：指当一个事件触发时，系统自动去执行的一些操作。
+      简言之就是在某一时刻，会自动执行的函数，叫生命周期函数。
+      Vue中提供了八种生命周期函数。
+  -->
+  <div id="root">
+    <div>{{message}}</div>
+  </div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        message: 'hello world'
+      }
+    },
+    // 1.在实例生成之前会自动执行的函数
+    beforeCreate() {
+      console.log('1.beforeCreate()被执行！')
+    },
+    // 2.在实例生成之后会自动执行的函数
+    created() {
+      console.log('2.created()被执行！')
+    },
+    // 3.在组件内容被渲染到页面之前自动执行的函数
+    beforeMount() {
+      console.log('3.beforeMount()被执行！组件内容为：',document.getElementById('root').innerHTML)
+    },
+    // 4.在组件内容被渲染到页面之后自动执行的函数
+    mounted() {
+      console.log('4.mounted()被执行！组件内容为：',document.getElementById('root').innerHTML)
+    },
+    // ▲ 控制台执行：vm.$data.message='你好';  可以观察5、6
+    // 5.当数据发生变化时会立即自动执行的函数
+    beforeUpdate() {
+      console.log('5.beforeUpdate()被执行！组件内容为：',document.getElementById('root').innerHTML);
+    },
+    // 6.当数据发生变化，页面重新渲染后，会自动执行的函数
+    updated() {
+      console.log('6.updated()被执行！组件内容为：',document.getElementById('root').innerHTML);
+    },
+    // ▲ 控制台执行：app.unmount();  可以观察7、8
+    // 7.当Vue应用失效时，自动执行的函数
+    beforeUnmount() {
+      console.log('7.beforeUnmount()被执行！组件内容为：',document.getElementById('root').innerHTML);
+    },
+    // 8.当Vue应用失效时，且dom完全销毁之后，自动执行的函数
+    unmounted() {
+      console.log('8.unmounted()被执行！组件内容为：',document.getElementById('root').innerHTML);
+    }
+  });
+  const vm = app.mount('#root');
+</script>
+</html>

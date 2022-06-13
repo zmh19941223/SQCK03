@@ -1,0 +1,168 @@
+2021-10-16 22:33:05.155 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: 引用测试, TestCase ID: b9754c2c-f840-413f-b8d0-51d84a168c5c
+2021-10-16 22:33:05.159 | INFO     | httprunner.runner:__run_step:292 - run step begin: 引用demo1 >>>>>>
+2021-10-16 22:33:05.160 | INFO     | httprunner.runner:__run_step:292 - run step begin: step1_login_request >>>>>>
+2021-10-16 22:33:07.261 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 44343
+2021-10-16 22:33:07.262 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-16 22:33:07.263 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-b9754c2c-f840-413f-b8d0-51d84a168c5c-785163",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-16 22:33:07.270 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=ktpoxgivq9wc045vfb6ikodx06xxo1td; HttpOnly; Path=/",
+    "Date": "Sat, 16 Oct 2021 14:33:07 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "ktpoxgivq9wc045vfb6ikodx06xxo1td"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-16 22:33:07.270 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2098.0 ms, response_length: 0 bytes
+2021-10-16 22:33:07.271 | INFO     | httprunner.response:extract:179 - extract mapping: {'retcode': 0, 'cookie': 'ktpoxgivq9wc045vfb6ikodx06xxo1td'}
+2021-10-16 22:33:07.272 | INFO     | httprunner.response:validate:249 - assert 0 equal 0(int)	==> pass
+2021-10-16 22:33:07.273 | INFO     | httprunner.runner:__run_step:304 - run step end: step1_login_request <<<<<<
+
+2021-10-16 22:33:07.274 | INFO     | httprunner.runner:__run_step:292 - run step begin: setp2_list_course >>>>>>
+2021-10-16 22:33:07.285 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 44343
+2021-10-16 22:33:07.286 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-16 22:33:07.286 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : GET
+url      : http://localhost/api/mgr/sq_mgr/?action=list_course&pagenum=1&pagesize=20
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-b9754c2c-f840-413f-b8d0-51d84a168c5c-787274",
+    "Cookie": "sessionid=ktpoxgivq9wc045vfb6ikodx06xxo1td; sessionid=ktpoxgivq9wc045vfb6ikodx06xxo1td"
+}
+cookies  : {
+    "sessionid": "ktpoxgivq9wc045vfb6ikodx06xxo1td"
+}
+body     : None
+
+2021-10-16 22:33:07.287 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "169",
+    "Vary": "Cookie",
+    "Date": "Sat, 16 Oct 2021 14:33:07 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0,
+    "retlist": [
+        {
+            "id": 1401,
+            "name": "test",
+            "desc": "test",
+            "display_idx": 1
+        },
+        {
+            "id": 1402,
+            "name": "test1",
+            "desc": "test1",
+            "display_idx": 2
+        }
+    ],
+    "total": 2
+}
+
+2021-10-16 22:33:07.288 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 10.67 ms, response_length: 0 bytes
+2021-10-16 22:33:07.289 | INFO     | httprunner.response:extract:179 - extract mapping: {'total': 2, 'retcode': 0}
+2021-10-16 22:33:07.290 | INFO     | httprunner.response:validate:249 - assert 2 equal 2(int)	==> pass
+2021-10-16 22:33:07.290 | INFO     | httprunner.response:validate:249 - assert 0 equal 0(int)	==> pass
+2021-10-16 22:33:07.291 | INFO     | httprunner.runner:__run_step:304 - run step end: setp2_list_course <<<<<<
+
+2021-10-16 22:33:07.292 | INFO     | httprunner.runner:__run_step_testcase:286 - export variables: {'cookie': 'ktpoxgivq9wc045vfb6ikodx06xxo1td'}
+2021-10-16 22:33:07.293 | INFO     | httprunner.runner:__run_step:304 - run step end: 引用demo1 <<<<<<
+
+2021-10-16 22:33:07.294 | INFO     | httprunner.runner:__run_step:292 - run step begin: setp2_list_course >>>>>>
+2021-10-16 22:33:07.300 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 44343
+2021-10-16 22:33:07.300 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-16 22:33:07.302 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : GET
+url      : http://localhost/api/mgr/sq_mgr/?action=list_course&pagenum=1&pagesize=20
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-b9754c2c-f840-413f-b8d0-51d84a168c5c-787294",
+    "Cookie": "sessionid=ktpoxgivq9wc045vfb6ikodx06xxo1td; sessionid=ktpoxgivq9wc045vfb6ikodx06xxo1td"
+}
+cookies  : {
+    "sessionid": "ktpoxgivq9wc045vfb6ikodx06xxo1td"
+}
+body     : None
+
+2021-10-16 22:33:07.303 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "169",
+    "Vary": "Cookie",
+    "Date": "Sat, 16 Oct 2021 14:33:07 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0,
+    "retlist": [
+        {
+            "id": 1401,
+            "name": "test",
+            "desc": "test",
+            "display_idx": 1
+        },
+        {
+            "id": 1402,
+            "name": "test1",
+            "desc": "test1",
+            "display_idx": 2
+        }
+    ],
+    "total": 2
+}
+
+2021-10-16 22:33:07.304 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 5.34 ms, response_length: 0 bytes
+2021-10-16 22:33:07.304 | INFO     | httprunner.response:extract:179 - extract mapping: {'total': 2, 'retcode': 0}
+2021-10-16 22:33:07.305 | INFO     | httprunner.response:validate:249 - assert 2 equal 2(int)	==> pass
+2021-10-16 22:33:07.306 | INFO     | httprunner.response:validate:249 - assert 0 equal 0(int)	==> pass
+2021-10-16 22:33:07.306 | INFO     | httprunner.runner:__run_step:304 - run step end: setp2_list_course <<<<<<
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>单击按钮以显示基于时间的问候语：</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo1">hello</p>
+
+
+<script>
+function myFunction() {
+  var greeting;
+  var time = new Date().getHours();
+  var time1 = new Date().getMonth();
+  if (time < 10) {
+    greeting = "早上好";
+  } else if (time < 20) {
+    greeting = "白天好";
+  } else {
+    greeting = "晚上好";
+  }
+  document.getElementById("demo1").innerHTML = greeting;
+}
+</script>
+</body>
+</html>

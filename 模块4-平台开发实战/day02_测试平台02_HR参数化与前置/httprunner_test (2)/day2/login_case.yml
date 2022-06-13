@@ -1,0 +1,40 @@
+config:
+  name: login_demo
+  base_url: http://localhost
+  variables:
+    ${login_variables()}  #引用debugtalk中的函数
+#  parameters:
+#    account:
+#      - auto
+#      - auto2
+#    psw:
+#      - sdfsdfsdf
+#      - sdfsdf
+#    code:
+#      - 0
+#      - 1
+    # 关联形式参数1-参数2-参数3: [[参数组1],[参数组2]...]
+#    account-psw-code:
+#      - ['auto','sdfsdfsdf',0]
+#      - ['auto1','sdfsdf',1]
+
+  export:
+    - cookie
+teststeps:
+  - # step 1
+    name: 登录
+    request:
+      url: /api/mgr/loginReq   # 和config中的base_url进行拼接
+      method: POST             # GET/POST/DELETE/PUT 大小写不敏感
+      data:
+        username: $account
+        password: $psw
+    extract: # 提取响应数据--相当于导出该数据，其他步骤可以使用
+      retcode: body.retcode            # 从响应体提取变量: body.属性.xxx
+      #cookie:  header.Set-Cookie       # 从响应头提取变量: header.属性.xxx
+      cookie: cookies.sessionid        # 从cookies提取变量
+
+    validate:
+      - equal:
+          - $retcode
+          - $code

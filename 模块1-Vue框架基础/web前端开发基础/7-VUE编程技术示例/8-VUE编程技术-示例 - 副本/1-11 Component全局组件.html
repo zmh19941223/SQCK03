@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>component全局组件</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  component： component组件是Vue最强大的功能之一。
+                       主要用于：扩展 HTML 元素，封装可重用的代码。
+                       组件分为全局组件和局部组件。
+                       全局组件，只要定义了，处处可以使用，性能不高，但是使用起来简单，名字建议字母单词小写，中间用横线间隔
+                       注册组件的语法格式为：Vue.component(tagName, options)
+                       其中：tagName 为组件名，options 为配置选项。
+                       注册后，我们可以使用以下方式来调用组件：<tagName></tagName>
+            props参数：写在子组件中，用来接收父组件的【自定义属性】传来是参数
+  -->
+<body>
+  
+  <div id="root">
+    <h2>1.不需要传参</h2>
+    <song-qin></song-qin>
+    <song-qin></song-qin>  <!--组件的复用-->
+    <song-qin></song-qin>  <!--组件的复用-->
+
+    <h2>2.通过v-bind和props向组件传递参数</h2>
+    <ul>
+      <myli  v-for="item in  items" v-bind:item="item"></myli>
+    </ul>
+    <h2>3.组件复用</h2>
+    <ul>
+      <myli  v-for="item in  items9" v-bind:item="item"></myli>
+    </ul>
+    
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            message: '12345',
+            items:[1,2,3,4,5],
+            items9:['a','b','c','d','e']
+          }
+      }
+  });
+  // 1.注册songqin组件
+  app.component('song-qin', {
+    template: '<p>自定义组件!</p>'
+  })
+  // 2.注册myli组件
+  app.component('myli', {
+    props:['item'],
+    template: '<li>{{item}}</li>'
+  })
+  
+  const vm=app.mount('#root');
+  
+</script>
+</html>

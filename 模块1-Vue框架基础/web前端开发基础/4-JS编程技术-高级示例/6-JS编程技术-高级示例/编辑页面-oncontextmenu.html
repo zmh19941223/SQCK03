@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>事件监听示例</title>
+        <script>
+            window.onload = function()
+            {
+               document.body.oncontextmenu = function (){
+                alert("禁止右键!");
+                   return false;
+               }
+            }
+        </script>
+    </head>
+    <body>
+        <p>看看能选上不？</p>
+    </body>
+</html>

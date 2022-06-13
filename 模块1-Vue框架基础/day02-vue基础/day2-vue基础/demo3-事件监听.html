@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo3</title>
+</head>
+<body>
+  <div id="root">
+    <!-- v-on:事件="js表达式"  简写@事件="js表达式" -->
+    <button v-on:click="age++">点我加1岁</button>
+    <h3>年龄:{{age}}</h3>
+    <!-- 加法计算器 -->
+    <!-- <input type="text" placeholder="请输入第1个值" v-model.number='value1'>
+    <input type="text" placeholder="请输入第2个值" v-model.number='value2'>
+    <button @click="add">计算</button>
+    <h3>结果:{{res}}</h3> -->
+      <!--函数不加括号,vue会默认传递事件对象给函数 -->
+    <!-- <input type="text" placeholder="请输入用户名"
+     v-model="username" @keyup.enter="checkName"> -->
+     <!-- vue通过 $event表示事件对象参数 -->
+    <input type="text" placeholder="请输入用户名"
+     @keyup.enter="checkName('haiwen',$event)">
+    <h3></h3>
+  </div>
+  <script src="../vue.js"></script>
+
+  <script>
+    Vue.createApp({
+      // 选项式API
+      data(){
+        return{
+          name:'hai',
+          age: 11,
+          value1: '',
+          value2: '',
+          res:'',
+        }
+      },
+      methods:{ // 自定义方法  
+        // data定义的数据会绑定到this
+        add(){
+          this.res = this.value1+this.value2
+        },
+        // checkName(event){
+        //   console.log(event.target.tagName) //事件对象目标元素的标签名
+        // }
+        checkName(name,event){
+          console.log('检查: ',name)
+          console.log(event.target.value) //事件对象目标元素
+        }
+      }
+    }).mount('#root')
+
+  </script>
+</body>
+</html>

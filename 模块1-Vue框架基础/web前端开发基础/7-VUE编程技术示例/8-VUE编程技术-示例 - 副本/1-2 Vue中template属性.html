@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue中template属性</title>
+  <script src="https://unpkg.com/vue@next"></script><!-- vue3 的CDN-->
+</head>
+
+<!-- ▲▲▲▲▲ Vue中template属性：用于把指定的元素绑定到DOM上。但如果本身挂载的DOM中存在内容，
+                             则在编译时替换为template属性指定的内容
+                方式1：不使用template属性
+                方式2：使用模板字符串拼接（不建议，难维护）
+                方式3：使用script标签形式（HTML5标准之前的写法,script中type属性加上"x-template"）
+                方式4：使用HTML的template标签（官方推荐的写法）
+
+-->
+
+<body>
+  
+  <div id="root">
+    <div><h1>方式1：{{message}}</h1></div>
+  </div>
+
+  <!-- 方式4 使用HTML的template标签形式（推荐）-->
+  <template id="tem4">
+    <div>
+        <h1>方式4：{{message}}</h1>
+    </div>
+  </template>
+
+</body>
+
+
+<!-- 方式3 使用script标签形式-->
+<script type="text/x-template" id="tem3">
+  <div> 
+      <h1>方式3：{{message}}。</h1>
+  </div>
+</script>
+
+
+
+<script>
+  const app = Vue.createApp({
+    data () {
+      return {
+        message: 'hello world!'
+      }
+    },
+    // template:'<div><h1>方式2：{{message}}</h1></div>'
+    // template:'#tem3'
+    // template:'#tem4'
+  });
+  const vm=app.mount('#root');
+
+</script>
+
+
+</html>

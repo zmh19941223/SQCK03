@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>事件监听示例</title>
+        <script>
+            window.onload = function()
+            {
+                var btnOpen = document.getElementById("btn_open");
+                var btnClose = document.getElementById("btn_close");
+                var opener = null;
+
+                btnOpen.onclick = function()
+                {
+                    opener = window.open("http://www.baidu.com");
+                };
+                btnClose.onclick = function()
+                {
+                    opener.close();
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <input id="btn_open" type="button" value="打开当前窗口">
+        <input id="btn_close" type="button" value="关闭当前窗口">
+
+    </body>
+</html>

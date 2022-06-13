@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加元素与内容</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <span>以下是正文：</span>
+    <div>
+        <p style="background-color: red;">part1的内容.</p> 
+    </div>
+    <div>
+        <ol>
+            <li>列表项目1</li>
+            <li>列表项目2</li>
+            <li>列表项目3</li>
+        </ol>
+    </div>
+    <div> 
+        <button id="btn1">追加文本（段落中后面）</button>
+        <button id="btn2">追加列表项（列表中后面）</button>
+
+        <button id="btn3">追加文本（段落中的前面）</button>
+        <button id="btn4">追加列表项（列表中的前面）</button>
+    </div>
+    <div>
+        <button id="btn5">追加B元素（段落身后）</button>
+        <button id="btn6">追加B元素（列表身后）</button>
+
+        <button id="btn7">追加B元素（段落身前）</button>
+        <button id="btn8">追加B元素（列表身前）</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("p").append("<b>后面添加文本</b>.");
+            });
+
+            $("#btn2").click(function(){
+                $("ol").append("<li>后面添加列表项</li>");
+            });
+
+            $("#btn3").click(function(){
+                $("p").prepend("<b>前面添加文本</b>.");
+            });
+
+            $("#btn4").click(function(){
+                $("ol").prepend("<li>前面添加列表项</li>");
+            });
+
+
+            $("#btn5").click(function(){
+                $("p").after("<b>身后添加(after)</b>.");
+            });
+
+            $("#btn6").click(function(){
+                $("ol").after("<b>身后添加(after)</b>");
+            });
+
+            
+            $("#btn7").click(function(){
+                $("p").before("<b>身前添加(before)</b>.");
+            });
+
+            $("#btn8").click(function(){
+                $("ol").before("<b>身前添加(before)</b>");
+            });
+
+        });
+
+    </script>
+</body>
+</html>

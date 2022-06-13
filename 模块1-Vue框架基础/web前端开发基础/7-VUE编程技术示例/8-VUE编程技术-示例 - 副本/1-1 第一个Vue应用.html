@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一个vue应用</title>
+  <script src="https://unpkg.com/vue@next"></script><!-- vue3 的CDN-->
+</head>
+
+<!-- ▲▲▲▲▲ Vue的核心，是一个允许采用简洁的模板语法，来声明式地将数据渲染进 DOM 的系统 -->
+
+<body>
+  
+  <div id="root">
+    {{message}}   <!-- 用两对大括号包裹的，叫插值表达式 -->
+  </div>
+
+</body>
+<script>
+
+  //1. createApp 表示创建一个 Vue 应用（换句话说创建了一个Vue实例）, 并存储到 app 变量中
+  const app = Vue.createApp({
+    //2. Vue实例中，添加了一个data属性，返回的是一个对象
+    data () {
+      return {
+        message: 'hello world!'
+      }
+    },
+    //3.methods属性用于定义方法
+    methods: {
+        
+    }    
+    
+  });
+  //99.将vue应用挂载到页面DOM
+  const vm=app.mount('#root');
+
+</script>
+</html>

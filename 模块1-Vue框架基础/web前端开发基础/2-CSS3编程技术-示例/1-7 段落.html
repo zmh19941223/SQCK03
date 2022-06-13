@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>段落</title>
+    <style>
+        /*
+            段落：一般有段落缩进、行高
+            如果设置行高=盒子高度，则可实现单行文本的垂直居中
+        */
+
+        /* 1.设置缩进 */
+        p,div {
+           height: 50px;
+           text-indent: 2em;
+           border: pink solid 1px;
+        }
+
+        /* 2.定义行高(如果设置行高=盒子高度，则可实现单行文本的垂直居中) */
+        .lh50 {
+           line-height: 50px;
+        }
+       
+
+    </style>
+
+</head>
+<body>
+    <h2>静夜思1</h2>
+    <p>床前明月光，</p>
+    <p class="lh50">疑是地上霜。</p>
+    <p>举头望明月，</p>
+    <p>低头思故乡。</p>
+
+    <h2>静夜思2</h2>
+    <div>床前明月光，</div>
+    <div class="lh50">疑是地上霜。</div>
+    <div>举头望明月，</div>
+    <div>低头思故乡。</div>
+
+</body>
+</html>

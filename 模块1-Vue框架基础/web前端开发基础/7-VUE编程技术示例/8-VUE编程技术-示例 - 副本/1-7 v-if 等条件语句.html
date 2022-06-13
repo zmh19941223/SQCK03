@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if等条件语句</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  v-if指令：表示条件判断
+           v-else指令：用作v-if的else块
+           v-else-if指令：用作v-if的else-if 块
+
+           v-show指令：另一个用于根据条件展示元素的指令，v-show控制的是元素的display。它不支持template元素
+
+  
+  -->
+<body>
+  
+  <div id="root">
+    <div v-if="type === 'A'"> A </div>
+    <div v-else-if="type === 'B'"> B </div>
+    <div v-else-if="type === 'C'"> C </div>
+    <div v-else> Not A/B/C </div>
+
+    <h1 v-show="ok">Hello!</h1>
+
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            type: 'C',
+            ok:false
+          }
+      }
+    });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

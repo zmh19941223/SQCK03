@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>10-随机打乱图片</title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				position: absolute;
+				width: 150px;
+				height: 150px;
+			}
+			li img{
+				width: 150px;
+				height: 150px;
+			}
+			#box{
+				width: 500px;
+				height: 500px;
+				background: palevioletred;
+				margin: 50px auto;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload = function(){
+				var aLi = document.getElementsByTagName("li");
+				var arr = ["img/101.jpg","img/112.jpg","img/123.jpg","img/134.jpg","img/145.jpg","img/156.jpg","img/167.jpg","img/178.jpg","img/189.jpg"];
+				var arr1 = [0,1,2,3,4,5,6,7,8];
+				var time = null;
+				for (var i = 0; i < aLi.length; i++) {
+					var img = document.createElement("img");
+					img.src = arr[i];
+					aLi[i].append(img);
+				}
+				function run(){
+					//改变原数组[1,2,5,3,4,8,7,6,0]
+					arr1.sort(function(a,b){
+						return Math.random()-0.5;
+					});
+					for (var i = 0; i < arr1.length; i++) {
+						aLi[arr1[i]].style.left = 160*(i%3)+10+"px";
+						aLi[arr1[i]].style.top = 160*parseInt(i/3)+20+"px";
+						aLi[arr1[i]].style.transition = "1s";
+					}	
+				}
+				run();
+				time = setInterval(run,1000);	
+			}
+		</script>
+		<div id="box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插值表达式与其他插值指令</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲ Vue的插值表达式的语法为：{{变量或表达式}}，存在闪烁问题
+    ▲▲▲▲▲ v-html指令:用于插入原生的html内容
+    ▲▲▲▲▲ v-text指令：用于填充纯文本，不存在闪烁问题
+    ▲▲▲▲▲ v-once指令：只渲染元素和组件一次指令
+    ▲▲▲▲▲ v-cloak指令：有时候网络延时等原因，插值表达式可能会出现闪烁现象，即页面上显示{{data}}，
+    此时，可以使用v-cloak指令。
+  -->
+  <style>
+    /* 解决插值表达式闪烁 */
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+<body>
+  
+  <div id="root">
+
+    <h2>1.插值表达式</h2>
+    <p>{{message}}  </p>              <!--变量--> 
+    <p>{{1+2}}  </p>                  <!--算术表达式-->
+    <p>{{10===10}}  </p>              <!--关系表达式（全等于）-->
+    <p>{{1 > 2 ? "是" : "否" }} </p>  <!--三目运算符-->
+    <p v-cloak>{{message}}  </p>      <!--防止闪烁--> 
+    <p v-once >{{message}}  </p>      <!--只渲染一次指令，当改变message的值时，它不变--> 
+
+    <h2>2.v-html插值指令</h2>
+    <p v-html='rawHtml'></p>
+
+    <h2>3.v-text插值指令</h2> 
+    <p v-text='rawHtml'></p>
+      
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            message: 'hello world!',
+            rawHtml: '<span style="color:red">松勤</span>'
+          }
+      }
+    });
+  const vm=app.mount('#root');
+  
+
+</script>
+</html>

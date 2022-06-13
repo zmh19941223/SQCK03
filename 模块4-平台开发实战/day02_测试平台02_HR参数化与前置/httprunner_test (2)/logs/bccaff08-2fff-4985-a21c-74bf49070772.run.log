@@ -1,0 +1,104 @@
+2021-10-19 20:17:02.685 | INFO     | httprunner.runner:test_start:450 - Start to run testcase: 增加课程, TestCase ID: bccaff08-2fff-4985-a21c-74bf49070772
+2021-10-19 20:17:02.708 | INFO     | httprunner.runner:__run_step:292 - run step begin: 登录 >>>>>>
+2021-10-19 20:17:04.833 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 46354
+2021-10-19 20:17:04.835 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-19 20:17:04.836 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/loginReq
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-bccaff08-2fff-4985-a21c-74bf49070772-822709",
+    "Content-Length": "32",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {}
+body     : username=auto&password=sdfsdfsdf
+
+2021-10-19 20:17:04.843 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Content-Type": "application/json",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "14",
+    "Vary": "Cookie",
+    "Set-Cookie": "sessionid=68hufkhlu04aqewfs9tuofwit9ss896a; HttpOnly; Path=/",
+    "Date": "Tue, 19 Oct 2021 12:17:04 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {
+    "sessionid": "68hufkhlu04aqewfs9tuofwit9ss896a"
+}
+encoding : utf-8
+content_type : application/json
+body     : {
+    "retcode": 0
+}
+
+2021-10-19 20:17:04.845 | INFO     | httprunner.client:request:217 - status_code: 200, response_time(ms): 2124.2 ms, response_length: 0 bytes
+2021-10-19 20:17:04.846 | INFO     | httprunner.response:extract:179 - extract mapping: {'retcode': 0, 'cookie': '68hufkhlu04aqewfs9tuofwit9ss896a'}
+2021-10-19 20:17:04.847 | INFO     | httprunner.response:validate:249 - assert 0 equal 0(int)	==> pass
+2021-10-19 20:17:04.847 | INFO     | httprunner.runner:__run_step:304 - run step end: 登录 <<<<<<
+
+2021-10-19 20:17:04.848 | INFO     | httprunner.runner:__run_step:292 - run step begin: 发送增加课程请求 >>>>>>
+2021-10-19 20:17:07.476 | DEBUG    | httprunner.client:request:186 - client IP: 127.0.0.1, Port: 46354
+2021-10-19 20:17:07.477 | DEBUG    | httprunner.client:request:194 - server IP: 127.0.0.1, Port: 80
+2021-10-19 20:17:07.477 | DEBUG    | httprunner.client:log_print:40 - 
+================== request details ==================
+method   : POST
+url      : http://localhost/api/mgr/sq_mgr/
+headers  : {
+    "User-Agent": "python-requests/2.26.0",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "HRUN-Request-ID": "HRUN-bccaff08-2fff-4985-a21c-74bf49070772-824849",
+    "Cookie": "sessionid=68hufkhlu04aqewfs9tuofwit9ss896a; sessionid=68hufkhlu04aqewfs9tuofwit9ss896a",
+    "Content-Length": "202",
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+cookies  : {
+    "sessionid": "68hufkhlu04aqewfs9tuofwit9ss896a"
+}
+body     : action=add_course&data=%27+%7B+%22name%22%3A%22%E5%88%9D%E4%B8%AD%E5%8C%96%E5%AD%A6%22%2C+%22desc%22%3A%22%E5%88%9D%E4%B8%AD%E5%8C%96%E5%AD%A6%E8%AF%BE%E7%A8%8B%22%2C+%22display_idx%22%3A%224%22+%7D+%27
+
+2021-10-19 20:17:07.479 | DEBUG    | httprunner.client:log_print:40 - 
+================== response details ==================
+status_code : 500
+headers  : {
+    "Content-Type": "text/html",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Content-Length": "93531",
+    "Vary": "Cookie",
+    "Date": "Tue, 19 Oct 2021 12:17:07 GMT",
+    "Server": "0.0.0.0"
+}
+cookies  : {}
+encoding : ISO-8859-1
+content_type : text/html
+body     : <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>JSONDecodeError
+          at /api/mgr/sq_mgr/</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background-color:#fff; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bo ... OMITTED 93019 CHARACTORS ...
+
+2021-10-19 20:17:07.479 | ERROR    | httprunner.client:request:215 - 500 Server Error: Internal Server Error for url: http://localhost/api/mgr/sq_mgr/
+2021-10-19 20:17:07.504 | ERROR    | httprunner.response:validate:266 - assert body.retcode equal 0(int)	==> fail
+check_item: body.retcode
+check_value: None(NoneType)
+assert_method: equal
+expect_value: 0(int)

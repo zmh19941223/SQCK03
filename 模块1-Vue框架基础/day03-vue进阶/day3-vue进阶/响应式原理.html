@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy</title>
+</head>
+<body>
+  <script>
+    // Proxy 是ES6引入的API，作用是在目标对象之前拦截一层代理，可以通过操作代理实现操作对象
+    const obj ={
+      addr:'南京'
+    }
+    //创建代理--obj
+    const p = new Proxy(obj,{
+      //拦截取值动作
+      get: function(target,key){  //目标对象,属性
+        console.log('拦截get操作--vue这里做了更复杂的操作')
+        // console.log(target)
+        // console.log(typeof(key))
+        return Reflect.get(target,key)  //反射的方式取值
+      },
+      // 拦截设置值的动作
+      set: function(target,key,value){
+        console.log('拦截set操作-vue这里做了更复杂的操作')
+        target[key]=value
+        Reflect.set(target,key,value)  //反射的方式设置属性
+      },
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS的BOM操作</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        //证明1：全局变量是window对象的属性
+        alert("欢迎访问");
+        var p_result = confirm("请选择：");
+        var p_prompt = prompt("请输入地址：");
+        console.log(navigator.platform);
+        var  x =  100;
+        console.log(window.x == x );  // 输出 true
+
+        //证明2：内置函数是window对象的方法
+        console.log(window.isNaN == isNaN  ); // 输出 true
+        console.log(window.alert == alert  ); // 输出 true
+        console.log(window.navigator.appName);
+
+        //3：识别浏览器内核
+        var broser  =  navigator.userAgent ; 
+        if (broser.indexOf('Trident') > -1  )  {  
+            console.log('IE内核');
+        } else if (broser.indexOf('AppleWebKit') > -1  )  {   
+            console.log('苹果谷歌内核');
+            console.log(broser);
+        } else if (broser.indexOf('Presto') > -1  )  {  
+            console.log('opera内核');
+        } else if (broser.indexOf('Gecko') > -1  )  {  
+            console.log('火狐内核');
+        } else{
+            console.log('其他内核');
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue-demo1</title>
+</head>
+<body>
+  <!-- vue 操作此dom 此元素里面的后代元素统统可以被vue操控-->
+  <div id="root">
+    <!-- 插值表达式语法：{{js表达式}} 表达式中的变量来自于data函数返回 -->
+    <h1>你好{{name}}</h1>
+    <h1>1+1={{1+2020}}</h1> 
+    
+    <!-- 指令语法 v-指令 -->
+    <a v-bind:href="vue3Link">点我跳转到vue官网</a>
+
+  </div>
+  <!-- CDN引入方式 -需要联网--> 
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+  <!-- 引入本地vue.js文件  无需联网 vue文件必须是vue3版本-->
+  <!-- 下载地址：https://unpkg.com/vue@3.2.6/dist/vue.global.prod.js 复制保存文件内容到vue.js-->
+  <script src="../vue.js"></script>
+  <script>
+    // 初始化 vue对象
+    // const app = Vue.createApp({
+    //   data(){  //这里存放页面需要引用的数据,通过return返回对象
+    //     return {
+    //       name:'haiwen'
+    //     }
+    //   }
+    // })
+    // step1 组件对象
+    const componet = {
+      data(){  //这里存放页面需要引用的数据,通过return返回对象
+        // data这里定义数据
+        let name="haiwen"
+        // let vue3Link="https://baidu.com"
+        let vue3Link= 'https://v3.cn.vuejs.org/'
+        return {
+          name,
+          vue3Link
+        }//对象,装的是属性
+      }//语句块，里面装的是js表达式或函数或变量声明
+    }
+    // step2 初始化 vue对象
+    const app = Vue.createApp(componet)
+    // step3 挂载
+    app.mount('#root')  //挂载到id=root的元素上，开始操控此元素
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位</title>
+    <style> 
+
+        /*
+         相对定位：相对定位的元素，会在“老家留坑”，本质上仍然在原来的位置，只不过渲染在新的地方而已，
+                  渲染的图像可以比喻成“影子”，不会对页面上的其他元素产生任何影响
+         特点：它相对的是自己原来的位置。         
+         使用场景：微调元素位置、用作绝对定位的参考盒子
+        */
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+       .box1 {
+           border: 3px dashed #000;
+           width: 150px;
+           height: 150px;
+       }
+
+       .box2 {
+           background-color: pink;
+           width: 150px;
+           height: 150px; 
+       }
+
+       .relative {
+           position: relative;    /*相对定位*/
+           top: 50px;
+           left: 50px;
+       }
+
+    </style>
+</head>
+<body>
+    
+     <div class="box1">
+         <div class="box2 relative">
+             这个div相对于原来的位置偏移了
+         </div>
+     </div>
+     <div class="box1">这个div不受到影响，内容只是被压盖</div>
+
+</body>
+</html>

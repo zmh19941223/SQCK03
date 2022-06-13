@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色的四种表示法</title>
+    <style>
+        /*
+            color 属性可设置文本内容的前景色
+            color 属性值表示方法有四种：英语单词、十六进制、rgb()、rgba()
+            1.英语单词表示法，仅用于学习时临时设置颜色，在工作中，由于追求精确，基本上不用该表示法
+            2.十六进制表示法，是所有设计软件中通用的颜色表示法，十六进制ff就是十进制的255，每种颜色分量都是0~255的数字
+              如果颜色值是 #112233 的形式，可以简写为：#123
+            3.rgb() 表示法格式为：color:rgb(xxx,xxx,xxx);
+            4.rgba() 表示法是在rgb()表示法的基础上，后面添加一个表示透明度的参数，值介于0~1之间，0表示纯透明，1表示纯实心
+
+        */
+
+        /* 1.颜色英文表示法 */
+        .c1 {
+           color: red;
+        }
+        /* 2.颜色十六进制表示法 */
+        .c2 {
+           color: #ff00bb;   /*可以简写为：f0b*/
+        }
+        /* 3.颜色rgb()表示法 */
+        .c3 {
+           color: rgb(255,0,183);
+        }
+        /* 4.颜色rgba()表示法 */
+        .c4 {
+           color: rgb(255,0,183,0.5);
+        }
+
+    </style>
+
+</head>
+<body>
+    <h2>静夜思</h2>
+    <p class="c1">床前明月光，</p>
+    <p class="c2">疑是地上霜。</p>
+    <p class="c3">举头望明月，</p>
+    <p class="c4">低头思故乡。</p>
+
+</body>
+</html>

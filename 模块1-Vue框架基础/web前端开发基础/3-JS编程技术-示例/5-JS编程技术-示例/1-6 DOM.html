@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>JS的DOM操作</title>
+</head>
+<body>
+    <p>松勤网</p>
+    <p>松勤教育</p>
+    <script> 
+        var ps=document.getElementsByTagName("p");
+        //console.log(ps[0].innerHTML); //输出：松勤网
+        //ps[0].innerHTML='<b>软件测试</b>';
+        //ps[1].innerText='<b>软件测试</b>'; 
+
+        ps[0].style.color = '#fff';
+        ps[0].style.backgroundColor = 'red';
+        ps[1].style.fontSize = '32px';
+
+    </script>
+</body>
+</html>
+

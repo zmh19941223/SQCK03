@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-bind属性绑定</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  v-bind指令，用于绑定数据到HTML标签的属性上
+           v-bind指令是最常用的指令之一，所以提供了特定的缩写。
+                 v-bind:属性名    缩写为    :属性名
+  
+  -->
+  <style>
+     .color-red {
+       color:red;
+     }
+     .color-blue {
+       color:blue;
+     }
+     .f24 {
+       font-size: 24px;
+     }
+     .bg-yellow {
+       background: yellow;
+     }
+  </style>
+<body>
+  
+  <div id="root">
+    <h2>1.样式属性的绑定</h2>
+    <div v-bind:class="classString">class绑定样式1-字符串</div> 
+    <div v-bind:class="classObject">class绑定样式2-对象</div>
+    <div v-bind:class="classArray">class绑定样式3-数组</div>
+    <div v-bind:style="styleString">style绑定样式4-字符串</div>
+    <div v-bind:style="styleObject">style绑定样式5-对象</div>
+    <h2>2.其他属性的绑定</h2>
+    <div>
+      <a :href="url" target="_blank">网址</a>   <!--绑定href属性-->
+    </div>
+    <div>
+      <button :disabled="isButtonDisabled">确定</button>   <!--绑定disabled属性，是否禁用元素-->
+      <button v-bind:disabled="isButtonDisabled">v-bind指令的缩写</button>  
+    </div>
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            use:false,
+            classString:'color-red',
+            classObject: { 'f24': false, 'color-blue': true },
+            classArray: ['color-red', 'f24', {'bg-yellow': true}],
+
+            styleString: 'color: blue;background: pink',
+            styleObject: {
+              color: 'blue',
+              background: 'yellow'
+            },
+            
+            url: 'http://www.baidu.com',
+            isButtonDisabled: false
+          }
+      }
+    });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

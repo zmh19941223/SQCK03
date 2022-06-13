@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery文档就绪函数与选择器</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>西湖简介</h1>
+    <div>国家AAAAA级旅游景区</div>
+    <p><span id="part1">西湖</span>，位于浙江省杭州市<span class="box1">西湖区</span>龙井路1号，杭州市区西部，景区总面积49平方公里，汇水面积为21.22平方公里，湖面面积为6.38平方公里</p>
+    <script>
+        //1.文档就绪函数
+        $(function(){
+            alert('文档就绪函数，所有HTML内容加载就绪后，js代码才被执行！');
+        })
+
+        //2.标签选择器
+        $("div").css({"font-size":"100px","color":"red"});
+
+        //3.ID选择器
+        $("#part1").css("color","blue");
+
+        //4.类选择器
+        $(".box1").css("backgroundColor","yellow");
+    </script>
+</body>
+</html>

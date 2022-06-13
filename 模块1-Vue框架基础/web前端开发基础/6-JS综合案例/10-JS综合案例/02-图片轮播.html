@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>02-图片轮播</title>
+	<style type="text/css">
+		input{
+			border: none;
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			margin: 10px auto;
+			width: 500px;
+			height: 490px;
+			text-align: center;
+			padding-top: 10px;
+		}
+		#wrap input{
+			width: 80px;
+			height: 30px;
+			background: #03a9f4;
+		}
+		#wrap #p2{
+			display: none;
+		}
+		#wrap #box{
+			position: relative;
+			border: 5px solid gray;
+			width: 450px;
+			height: 300px;
+			margin-left: 20px;
+			box-shadow:0 0 10px rgba(81, 81,81,0.8)
+		}
+		#wrap #box #sp1{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 30px;
+			background: rgba(0,0,0,0.5);
+		}
+		#wrap #box #sp2{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+			background: rgba(0,0,0,0.2);
+		}
+		#wrap #box .btn{
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			background: rgba(104,106,112,0.8);
+			border-radius: 50%;
+			color: white;
+			line-height: 30px;
+
+		}
+		#wrap #box #left{
+			cursor: pointer;
+			left: 10px;
+			top: calc(50% - 15px);
+		}
+		#wrap #box #right{
+			cursor: pointer;
+			left: 410px;
+			top: calc(50% - 15px);
+		}
+		/*#wrap #tips #p1{
+			color: #7dcdfe;
+		}*/
+	</style> 
+</head>
+<body>
+	<div id="wrap">
+		<input type="button" name="" id="loop" value="循环切换">
+		<input type="button" name="" id="order" value="顺序切换">
+		<div id="tips">
+			<p id="p1">图片可以从最后一张跳转到第一张循环切换</p>
+		</div>
+		
+		<!-- <p id="p2">图片只能到最后一张或只能到第一张切换</p> -->
+		<div id="box">
+			<img src="img/1.jpg" id="img1">
+			<span id="sp1">1/4</span>
+			<span id="sp2">第一只小狗</span>
+			<span class="btn" id="left">&lt;</span>
+			<span class="btn" id="right">&gt;</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+			var arr = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"]//图片数组
+			var num = 1;
+			var oLoop = document.getElementById("loop");//循环切换按钮
+			var oOrder = document.getElementById("order");//顺序切换按钮
+			var oLeft = document.getElementById("left");//左箭头
+			var oRight = document.getElementById("right");//右箭头
+			var oP1 = document.getElementById("p1");//提示文字
+			var oImg1 = document.getElementById("img1");//显示的图片
+			var oSp1 = document.getElementById("sp1");//图片顶部显示文字
+			var oSp2 = document.getElementById("sp2");//图片底部显示文字
+			var oTips = document.getElementById("tips");//不用了
+			// 循环按钮绑定事件
+			oLoop.onclick = function(){
+				oP1.innerHTML = "图片可以从最后一张跳转到第一张循环切换";
+				oP1.style.color = "#7dcdfe";
+				oRight.onclick = function(){
+				if (num<arr.length) {				
+						oImg1.src = arr[num];
+						num++;
+						oSp1.innerHTML = num+"/"+"4";
+						oSp2.innerHTML = '第'+num+'只小狗';
+						}else{
+						num = 0;
+						oImg1.src = arr[num];
+						num++;
+						oSp1.innerHTML = num+"/"+"4";
+						oSp2.innerHTML = '第'+num+'只小狗';
+							}
+					}
+
+				oLeft.onclick = function(){
+					if (num > 1) {
+						oImg1.src = arr[num - 2];
+						num --;
+						oSp1.innerHTML = num+"/"+"4";
+						oSp2.innerHTML = '第'+num+'只小狗';
+					}else{
+						oImg1.src = arr[arr.length - num];
+						num = arr.length ;
+						oSp1.innerHTML = num+"/"+"4";
+						oSp2.innerHTML = '第'+num+'只小狗';
+					}
+				}
+			}
+			// 顺序切换按钮绑定事件
+			oOrder.onclick = function(){
+				oP1.innerHTML = "图片只能到最后一张或只能到第一张切换";
+				oP1.style.color = "#f47203";
+				oRight.onclick = function(){
+					if (num<arr.length) {				
+						oImg1.src = arr[num];
+						num++;
+						oSp1.innerHTML = num+"/"+"4";
+						oSp2.innerHTML = '第'+num+'只小狗';
+						}else{
+							alert("已经到最后一张啦！")
+						}
+				}
+				oLeft.onclick = function(){
+					if (num > 1) {
+						oImg1.src = arr[num - 2];
+						num --;
+						oSp1.innerHTML = num+"/"+"4";
+						oSp2.innerHTML = '第'+num+'只小狗';
+					}else{
+						alert("这已经是第一张了，不能再往前了！");
+					}
+				}
+			}
+			
+			
+
+			
+		}
+	</script>
+</body>
+</html>

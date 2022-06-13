@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>JS的DOM操作</title>
+</head>
+<body>
+    <p id="logo">松勤教育</p>
+    <p id="bann">最新活动</p>
+    <div id="menu">
+    <ul>
+        <li>首页</li>
+        <li>直播课</li>
+        <li>视频课</li>
+        <li>关于松勤</li>
+    </ul>
+    </div>
+    <input id="btn" type="button" value="修改"/>
+
+    <footer>copy right@2021</footer>
+    <script> 
+
+        //var p_result = confirm("请选择：");
+       // var p_prompt = prompt("请输入地址：");
+        //console.log(navigator.platform);
+        //console.log(p_prompt);
+        //var my_logo = document.getElementById("logo");
+        //my_logo.nodeName;
+        //var my_bann = document.getElementById("bann");
+        //alert(my_logo.id);
+        //var my_li = document.getElementsByTagName("li");
+        //alert(my_li[0].innerHTML);
+        //var p1 = document.createElement("p");
+        //p1.id = "p_1";
+        //p1.innerHTML = "abc";
+        //my_logo.appendChild(p1);
+        //var my_logo_p = my_logo.parentNode;
+        //alert(my_logo_p);s
+        //document.body.remove();
+        function fn(){
+            var oBtn = document.getElementById("btn");
+            oBtn.setAttribute("value","确定");
+        }
+
+        // 为什么不行，不知道
+        window.onload = function(){
+            var oBtn = document.getElementById("btn");
+            oBtn.addEventListener("onclick",fn,false);
+        //oBtn.onmouseover = function(){
+          // oBtn.setAttribute("value","确定")
+           //window.open("http://www.songqinnet.com","_self");
+           //window.close();
+        }
+    //}
+ 
+       //新加入
+        window.onload = function(){
+            var oBtn = document.getElementById("btn"); 
+            oBtn.addEventListener("click", fn,false);  
+        }
+        
+        var ps=document.getElementsByTagName("p");
+        //console.log(ps[0].innerHTML); //输出：松勤网
+        //ps[0].innerHTML='<b>软件测试</b>';
+        //ps[1].innerText='<b>软件测试</b>'; 
+
+        ps[0].style.color = '#fff';
+        ps[0].style.backgroundColor = 'red';
+        ps[1].style.fontSize = '32px';
+
+    </script>
+</body>
+</html>
+

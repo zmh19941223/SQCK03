@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-on事件绑定</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+  <!-- 
+    ▲▲▲▲▲  v-on 指令：用于监听DOM事件，如：执行js代码、执行事件处理方法、执行内联js方法
+           v-on 指令也是最常用的指令之一，所以也提供了特定的缩写。
+                 v-on:事件名    缩写为    @事件名
+  
+  -->
+<body>
+  
+  <div id="root">
+    <div>
+      <h2>1.执行事件处理方法</h2>
+      <button  v-on:click="counter += 1">Add+1</button >
+      <p>这个按钮被点击了：{{counter}} 次</p>
+    </div>
+    <div>
+      <h2>2.执行js代码</h2>
+      <p><a v-on:click.once="checkMe">点我呀!</a></p>
+      <p><a @click="checkMe">v-on指令的缩写</a></p>
+    </div>
+  </div>
+
+</body>
+<script>
+
+  var app = Vue.createApp({
+    data(){
+          return {
+            counter: 0
+          }
+      },
+    methods: { 
+        // methods属性用于定义方法，值是一个对象，表示可以定义多个方法。
+        checkMe: function() {
+            alert('Hello World');
+        }
+      }
+
+    });
+  const vm=app.mount('#root');
+  
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>07-鼠标移入效果</title>
+		<style>
+			li{
+				list-style: none;
+			}
+			#box{
+				margin: 150px auto;
+			}
+			#box ul li{
+				width: 100px;
+				height: 200px;
+				border-radius: 20px;
+				float: left;
+				margin-right: 30px;
+				position: relative;
+				bottom: 0;
+			}
+			#box ul li:first-child{
+				margin-left: 80px;
+			}
+			#box:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var aLi = document.getElementsByTagName("li");
+				var arr = ["red","yellow","blue","green"];
+				var time = null;
+					for(var i=0;i<aLi.length;i++){
+						aLi[i].style.background = arr[i%4];
+						aLi[i].onmouseover = function(){
+							this.style.bottom = "-30px";
+							this.style.transition = "1s";
+						}
+						aLi[i].onmouseout = function(){
+							var temp = this;
+							var time = null;
+							var time1 = null;
+							time = setTimeout(function(){
+								temp.style.bottom = "30px";
+								temp.style.transition = "1s";
+							},1000);
+							
+							time1 = setTimeout(function(){
+								temp.style.bottom = "0";
+								temp.style.transition = "0";
+							},2000);
+						}
+					}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

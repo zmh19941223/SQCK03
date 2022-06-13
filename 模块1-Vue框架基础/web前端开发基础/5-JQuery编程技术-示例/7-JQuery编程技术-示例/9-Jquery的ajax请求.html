@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery的ajax请求</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <p>请登录：<input id="btn1" type="button" value="登录"> </p>
+    <p id="resText"></p>
+    <script>
+        $(document).ready(function(){ 
+             //3. 登录在线刷题系统
+            $("#btn1").bind("click",function(){
+             var sendData = {"userName": "135757265360", "password": "111111", 
+             "remember": "false"};
+               $.ajax({
+                    url:'http://vip.ytesting.com:9090/api/user/login',
+                    type: "POST", 
+                    data: JSON.stringify(sendData),
+                    dataType: "json",
+                    headers:{'Content-Type':'application/json;charset=utf8'},
+                    success: function(data){
+                        $('#resText').empty();   //清空resText里面的所有内容
+                         var html = data.flag;
+                         if (data.code == '1'){
+                             console.log("测试成功!");
+                         }  
+                         $('#resText').html(html);
+                      },
+                    error:function(data){
+                        alert("login failed");
+
+                    }
+
+               });
+            });
+        })
+       
+    </script>
+</body>
+</html>

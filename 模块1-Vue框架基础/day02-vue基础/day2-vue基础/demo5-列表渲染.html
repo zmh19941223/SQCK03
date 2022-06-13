@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo5</title>
+</head>
+<body>
+  <div id="root">
+    <h3>待办事项</h3>
+    <ul>
+      <!-- v-for用于需要循环渲染的元素上，常用于列表元素 -->
+      <!-- v-for语法 v-for="item in itemlist" -->
+      <li v-for="todo in todo_list">{{todo}}</li>
+    </ul>
+
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    Vue.createApp({
+      data(){
+        return{
+          todo_list: ['吃饭','睡觉','打豆豆','hahaha','你好']
+        }
+      }
+    }).mount('#root')
+  </script>
+</body>
+</html>

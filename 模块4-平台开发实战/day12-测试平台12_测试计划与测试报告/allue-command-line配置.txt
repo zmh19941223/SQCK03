@@ -1,0 +1,2 @@
+解压allure-2.13.0.zip 
+将bin目录配置到环境变量path中

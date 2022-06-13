@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.盒模型</title>
+</head>
+<style>
+    /*
+        盒模型：所有的HTML标签，都可以看成矩形的盒子，由宽度、高度、padding、border构成，称为：盒模型
+    */
+
+    /* 没有设置box-sizing属性。盒子的宽度就是220 */
+    .box1 {
+        width: 220px;
+        height: 220px;
+        padding: 30px;
+        border: 30px solid red;
+        margin: 60px;
+    }
+
+    
+   /*如果设置了box-sizing属性=border-box，盒子的宽度则包含了padding 和 border   */
+    .box2 {
+        box-sizing: border-box;
+        width: 220px;
+        height: 220px;
+        padding: 30px;
+        border: 30px solid red;
+        margin: 60px;
+    }
+  
+    /*如果设置了box-sizing属性=inherit，规定应从父元素继承 box-sizing 属性的值。 */
+    .box3 {
+        box-sizing: inherit;
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+        border: 10px solid red;
+        margin: 0px;
+    }
+
+</style>
+<body>
+
+    <!-- 盒模型1：没有设置box-sizing属性。盒子的宽度就是220 -->
+    <div class="box1">
+        220*220
+    </div>
+    
+    <!-- 盒模型2：设置了box-sizing属性=border-box，盒子的宽度则包含了padding 和 border -->
+    <div class="box2">
+        100*100
+    </div>
+
+    <!-- 盒模型3：设置了box-sizing属性=padding-box，盒子的宽度则包含了padding -->
+    <div class="box2">
+        <div class="box3">
+            40*40
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

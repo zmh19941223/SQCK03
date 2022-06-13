@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery的属性操作</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <style>
+        div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/hehua.jpg" width="300px">
+    <div>
+        <button id="btn1">设置图片的宽度为400</button>
+        <button id="btn2">同时设置多个属性</button>
+        <button id="btn3">获取图片的宽度</button>
+        <button id="btn4">移除width属性</button>
+    </div>
+    <p></p>
+   
+    <script>
+        $(function(){
+            // 1.设置图片的宽度
+            $("#btn1").click(function(){
+                $("img").attr("width","400px");
+            });
+            // 2.同时设置多个属性
+            $("#btn2").click(function(){
+                $("img").attr({"width":"200px","title":"西湖荷花"});
+            });
+            // 3.获取图片的宽度
+            $("#btn3").click(function(){
+                $('p').html('图片的宽度为：'+$("img").attr("width"));
+            });
+            // 4.移除width属性
+            $("#btn4").click(function(){
+                $("img").removeAttr("width");
+            });
+
+            $("#btn3").click();
+        })
+    </script>
+</body>
+</html>

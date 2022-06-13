@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置与获取HTML内容</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <p id="part1">
+        填写表单
+    </p>
+    <p>
+      <span>姓名</span>
+      <input type="text" value="张三">
+    </p>
+    
+    <div></div>
+    <button id="btn1">获取元素内容</button>
+    <button id="btn2">设置元素内容</button>
+
+<script>
+
+     $(function(){
+        // 1.获取元素的内容
+        $("#btn1").click(function(){
+            var html='';
+            //1.获取元素的内容
+            html=html+'元素的内容：'+$("#part1").html();
+            //2.获取元素的文本内容
+            html=html+'。span元素的文本内容：'+$("span").text();
+            //3.获取input表单的值
+            html=html+'。input表单的值：'+$("input").val();
+            $("div").text(html);
+        });
+        // 2.设置元素的内容
+        $("#btn2").click(function(){
+            //4.设置元素的内容
+            $("#part1").html("<b>填写内容</b>");
+            //5.设置元素的文本内容
+            $("span").text("年龄");
+            //6.设置input表单的值
+            $("input").val("36");
+        });
+
+         
+
+
+      })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+
+
+$header-height: 60px;
+$background-color: #0c0d0e;
+$color: #fff;
+
+.main {
+  height: 100vh;
+  min-width: 800px;
+  min-height: 600px;
+  overflow: hidden;
+
+  aside {
+    overflow: visible;
+    height: 100%;
+    background-color: $background-color;
+    color: $color;
+
+    .isClossTab {
+      width: 100%;
+      height: $header-height;
+      cursor: pointer;
+      font-size: 25px;
+      text-align: center;
+      line-height: $header-height;
+      font-weight: bold;
+      border-right: 1px solid #0c0d0e;
+      box-sizing: border-box;
+    }
+    .menu {
+      width: 100%;
+      border-right: 0;
+    }
+  }
+
+  .main-header {
+    background-color: $background-color;
+    color: $color;
+
+    .el-dropdown {
+      cursor: pointer;
+      float: right;
+    }
+    .el-dropdown-link {
+      img {
+        $imgMargin: (($header-height - 50)/2);
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: #fff;
+        margin-top: $imgMargin;
+      }
+    }
+  }
+
+  .crumbs {
+    margin-bottom: 20px;
+  }
+
+  .main-footer {
+    text-align: center;
+    background-color: $background-color;
+    color: $color;
+    line-height: 50px;
+  }
+}

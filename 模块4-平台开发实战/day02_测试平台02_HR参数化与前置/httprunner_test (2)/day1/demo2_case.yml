@@ -1,0 +1,33 @@
+config:
+  name: 引用测试
+  base_url: http://localhost
+
+teststeps:
+  -
+    name: 引用demo1
+    testcase: day1/demo1_login_list.yml  # 引用其他用例 相对路径规则：执行时候命令行所处的路径
+
+  -
+    name: setp2_list_course
+    request:
+      method: GET
+      url: /api/mgr/sq_mgr/
+      params:
+        action: list_course
+        pagenum: 1
+        pagesize: 20
+      cookies:
+        sessionid: $cookie
+    extract:                    # 引用测试用例模式无需写extract
+      total: body.total
+      retcode: body.retcode
+
+    validate:
+      -
+        equal:
+          - $total
+          - 2
+      -
+        equal:
+          - $retcode
+          - 0

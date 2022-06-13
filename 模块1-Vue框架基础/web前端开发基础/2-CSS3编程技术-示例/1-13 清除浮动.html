@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动2</title>
+<style>
+      /*
+        浮动的目的：浮动是用来实现并排的，即：浮动是为了解决左边图片，右边文字的需求
+        浮动的实现：子元素在父元素内浮动，只需要对子元素设置float: left/right 即可
+        浮动可能会带来的问题：如果父元素不设置高度（有时候不好计算父元素的高度），子元素浮动后，会导致父元素高度塌陷变为0
+        解决父元素高度塌陷变为0的方法，叫浮动清除（注意：是清除带来的问题，而不是删除浮动）。
+        浮动清除的方法：
+        方法1：设置父元素的高度
+        方法2：给父元素添加：overflow:hidden; 样式
+        方法3：在父元素内，添加冗余元素：clear:both;
+    */
+    .box {
+        width: 1000px;
+        border:blue 1px solid;
+        margin: 20px;
+        height: 100px;    /* 清除浮动方式1*/
+        overflow:hidden;  /* 清除浮动方式2*/
+    } 
+    .box1 {
+        width: 100px;
+        height: 100px; 
+        float: left;
+        background-color: red;
+    }
+    .box2 {
+        width: 100px;
+        height: 100px; 
+        float: left;
+        background-color: blue;
+    }
+    .box3 {
+        width: 800px;
+        height: 100px; 
+        float: right;
+        background-color: yellow;
+    }
+    /* 清除浮动方式3 */
+    .clear {
+        clear:both;
+    }
+
+  
+
+</style>
+</head>
+<body>
+        
+    <div class="box">
+        <div class="box1 ">div盒子1</div>
+        <div class="box2 ">div盒子2</div>
+        <div class="box3 ">div盒子3</div>
+        <div class="clear"></div>  <!--清除浮动方式3  -->
+    </div>    
+
+   
+</body>
+</html>

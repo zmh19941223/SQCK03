@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景图片及平铺</title>
+    <style>
+        /*
+            background-image   属性用来设置背景图片，语法格式如下background-image: url(图片路径)
+            background-repeat  背景平铺属性
+                               1.repeat  表示xy都平铺（默认）
+                               2.no-repeat  表示xy都平铺（默认）
+                               3.repeat-x  表示xy都平铺（默认）
+                               4.repeat-y  表示xy都平铺（默认）
+            background-size    用来设置背景图片的尺寸，默认值为auto                   
+        */
+        div{
+            height: 300px;
+            padding:35px;
+        }
+        /* 1.默认x,y都平铺 */
+        #example1 {
+            border: 10px dotted black;            
+            background-image: url(image/fj.png);      
+            /* 默认repeat */
+            /* background-repeat: repeat; */
+        }
+        /* 2.不平铺 */
+        #example2 {
+            border: 10px dotted black;
+            background-image: url(image/fj.png) ;
+            background-repeat: no-repeat;
+        }
+        /* 3.x方向平铺 */
+        #example3 {
+            border: 10px dotted black;
+            background-image: url(image/fj.png);
+            background-repeat: repeat-x;
+        }
+        /* 4.y方向平铺 */
+        #example4 {
+            border: 10px dotted black;
+            background-image: url(image/fj.png);
+            background-repeat: repeat-y;
+        }
+
+        /* 5.背景图片大小 */
+        #example5 {
+            border: 10px dotted black;
+            background-image: url(image/fj.png);
+            background-repeat: no-repeat;
+            background-size: 100px 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>背景图片</h1>
+    <h2>1、背景平铺</h2>
+    <div id="example1"></div>
+
+    <h2>2、背景不平铺</h2>
+    <div id="example2"></div>
+
+    <h2>3、x方向平铺</h2>
+    <div id="example3"></div>
+
+    <h2>4、y方向平铺</h2>
+    <div id="example4"></div>
+
+    <h2>5、图片大小</h2>
+    <div id="example5"></div>
+
+</body>
+</html>

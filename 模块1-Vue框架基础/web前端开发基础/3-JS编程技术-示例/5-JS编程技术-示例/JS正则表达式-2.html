@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 正则表达式</h1>
+
+<p>将“microsoft”替换为以下段落中的“songqin”：</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo">Please visit Microsoft and songqin microsoft!</p>
+
+<script>
+function myFunction() {
+  var str = document.getElementById("demo").innerHTML; 
+  var txt = str.replace(/microsoft/ig,"songqin");
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+</body>
+</html>

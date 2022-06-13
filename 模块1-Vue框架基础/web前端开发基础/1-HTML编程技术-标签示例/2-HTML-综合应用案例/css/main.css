@@ -1,0 +1,100 @@
+body{
+    overflow-x: hidden;
+}
+#menu{
+    position:relative;
+    top: -400px;
+    left:50%;
+}
+#ul_menu{
+    list-style-type: none;
+    position: relative;
+
+}
+#ul_menu li{
+    float:left;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+#search{
+    position: relative;
+    top:-400px;
+    left: 500px;
+
+}
+#form1 input{
+    border-color:mediumblue;
+
+}
+a{
+    text-decoration: none;
+}
+.clearf{
+    clear: both;
+}
+#img_logo{
+    height: 100px;
+}
+#footer{
+    position: relative;
+    top: 20px;
+    left: 40%;
+}
+#query{
+    position: relative;
+    top: -100px;
+    left: 40%;
+}
+#left{
+    position: relative;
+    top: -50px;
+    border-style: double;
+    width: 40%;
+    line-height: 40px;
+}
+#center_c{
+    position: relative;
+    top: -285px;
+    left: 700px;
+    border-style: double;
+    width: 40%;
+    line-height: 40px;
+}
+#center_c{
+    text-align: right;
+}
+#center_c ul{
+    text-align:left;
+}
+#tuijian{
+    position: relative;
+    top: -280px;
+
+}
+#tuijian_1{
+    position: relative;
+    top: -280px;
+}
+#tuijian_2{
+    position: relative;
+    top: -455px;
+    left: 350px;
+}
+#tuijian_3{
+    position: relative;
+    top: -630px;
+    left: 700px;
+}
+#tuijian_4{
+    position: relative;
+    top: -805px;
+    left: 1050px;
+}
+#center p{
+    text-indent: 25px;
+    line-height: 30px;
+}
+#img_banner{
+    width: 100%;
+}

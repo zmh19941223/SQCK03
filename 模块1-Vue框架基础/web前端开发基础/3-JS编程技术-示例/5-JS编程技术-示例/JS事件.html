@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript 事件</h1>
+<p>点击按钮来显示日期。</p>
+<button onclick="displayDate()">时间是？</button>
+<script>
+function displayDate() {
+    document.getElementById("demo").innerHTML = Date();
+}
+function myFunction(){
+	document.getElementById("demo1").innerHTML="Hello World";
+}
+function myFunction1(){
+	document.getElementById("demo1").innerHTML="";
+}
+</script>
+<p id="demo"></p>
+<p>单击按钮触发函数。</p>
+<button onmouseover="myFunction()" onmouseout="myFunction1()">点我</button>
+<p id="demo1"></p>
+</body>
+</html>
+
+
+

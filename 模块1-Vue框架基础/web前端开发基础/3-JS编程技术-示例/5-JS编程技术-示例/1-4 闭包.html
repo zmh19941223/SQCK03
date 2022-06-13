@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <p>什么是闭包</p>
+    <script>
+        //闭包示例
+        function   fun() {
+            var   a =  10 ;
+            return  function   inc() {//返回内部函数
+                a++;
+                console.log(a); 
+            }
+        }
+        var   c =   fun(); //内部函数放到外部执行
+        c();   // 输出11，局部变量a 发生了改变
+        c();   // 输出12，局部变量a 发生了改变
+
+    </script>
+</body>
+</html>
